@@ -1,0 +1,3 @@
+C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Source\GameplayRecipies\GameplayRecipies.Build.cs
+C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Source\GameplayRecipies.Target.cs
+C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Source\GameplayRecipiesEditor.Target.cs

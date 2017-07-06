@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\GameplayRecipies.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{2679EDEE-9997-4AFA-AC28-3096A9B00F53}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\GameplayRecipies.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\GameplayRecipiesEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{336C173F-A769-4721-86D1-0278E67DD1D1}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\GameplayRecipies">
+      <UniqueIdentifier>{B002D957-D8F0-446E-80C2-D12D0BA4CB17}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\GameplayRecipies\GameplayRecipies.Build.cs">
+      <Filter>Source\GameplayRecipies</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\GameplayRecipies\GameplayRecipies.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\GameplayRecipies.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameplayRecipies\GameplayRecipiesGameModeBase.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\GameplayRecipiesGameModeBase.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\GameplayRecipies\LightSwitch.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\GameplayRecipies\LightSwitch.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
