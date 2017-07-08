@@ -5,6 +5,9 @@
 ===========================================================================*/
 
 #include "GeneratedCppIncludes.h"
+#ifndef GAMEPLAYRECIPIES_CameraDirector_generated_h
+	#include "CameraDirector.h"
+#endif
 #ifndef GAMEPLAYRECIPIES_GameplayRecipiesGameModeBase_generated_h
 	#include "GameplayRecipiesGameModeBase.h"
 #endif

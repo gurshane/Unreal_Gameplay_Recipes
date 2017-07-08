@@ -15,14 +15,17 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 #if USE_COMPILED_IN_NATIVES
 // Cross Module References
+	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_AGameModeBase();
 	ENGINE_API class UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_UPointLightComponent_NoRegister();
 
+	GAMEPLAYRECIPIES_API class UScriptStruct* Z_Construct_UScriptStruct_FDirectorCam();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ACameraDirector_NoRegister();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ACameraDirector();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AGameplayRecipiesGameModeBase_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AGameplayRecipiesGameModeBase();
 	GAMEPLAYRECIPIES_API class UFunction* Z_Construct_UFunction_ALightSwitch_OnOverlapBegin();
@@ -31,6 +34,98 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ALightSwitch_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ALightSwitch();
 	GAMEPLAYRECIPIES_API class UPackage* Z_Construct_UPackage__Script_GameplayRecipies();
+class UScriptStruct* FDirectorCam::StaticStruct()
+{
+	extern GAMEPLAYRECIPIES_API class UPackage* Z_Construct_UPackage__Script_GameplayRecipies();
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern GAMEPLAYRECIPIES_API class UScriptStruct* Z_Construct_UScriptStruct_FDirectorCam();
+		extern GAMEPLAYRECIPIES_API uint32 Get_Z_Construct_UScriptStruct_FDirectorCam_CRC();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FDirectorCam, Z_Construct_UPackage__Script_GameplayRecipies(), TEXT("DirectorCam"), sizeof(FDirectorCam), Get_Z_Construct_UScriptStruct_FDirectorCam_CRC());
+	}
+	return Singleton;
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FDirectorCam(FDirectorCam::StaticStruct, TEXT("/Script/GameplayRecipies"), TEXT("DirectorCam"), false, nullptr, nullptr);
+static struct FScriptStruct_GameplayRecipies_StaticRegisterNativesFDirectorCam
+{
+	FScriptStruct_GameplayRecipies_StaticRegisterNativesFDirectorCam()
+	{
+		UScriptStruct::DeferCppStructOps(FName(TEXT("DirectorCam")),new UScriptStruct::TCppStructOps<FDirectorCam>);
+	}
+} ScriptStruct_GameplayRecipies_StaticRegisterNativesFDirectorCam;
+	UScriptStruct* Z_Construct_UScriptStruct_FDirectorCam()
+	{
+		UPackage* Outer = Z_Construct_UPackage__Script_GameplayRecipies();
+		extern uint32 Get_Z_Construct_UScriptStruct_FDirectorCam_CRC();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("DirectorCam"), sizeof(FDirectorCam), Get_Z_Construct_UScriptStruct_FDirectorCam_CRC(), false);
+		if (!ReturnStruct)
+		{
+			ReturnStruct = new(EC_InternalUseOnlyConstructor, Outer, TEXT("DirectorCam"), RF_Public|RF_Transient|RF_MarkAsNative) UScriptStruct(FObjectInitializer(), NULL, new UScriptStruct::TCppStructOps<FDirectorCam>, EStructFlags(0x00000001));
+			UProperty* NewProp_SmoothBlendTime = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("SmoothBlendTime"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(SmoothBlendTime, FDirectorCam), 0x0010000000000001);
+			UProperty* NewProp_TimeToNextCameraChange = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("TimeToNextCameraChange"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(TimeToNextCameraChange, FDirectorCam), 0x0010000000000001);
+			UProperty* NewProp_Camera = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Camera"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(Camera, FDirectorCam), 0x0010000000000001, Z_Construct_UClass_AActor_NoRegister());
+			ReturnStruct->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnStruct->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnStruct, TEXT("ModuleRelativePath"), TEXT("CameraDirector.h"));
+			MetaData->SetValue(NewProp_SmoothBlendTime, TEXT("Category"), TEXT("DirectorCam"));
+			MetaData->SetValue(NewProp_SmoothBlendTime, TEXT("ModuleRelativePath"), TEXT("CameraDirector.h"));
+			MetaData->SetValue(NewProp_TimeToNextCameraChange, TEXT("Category"), TEXT("DirectorCam"));
+			MetaData->SetValue(NewProp_TimeToNextCameraChange, TEXT("ModuleRelativePath"), TEXT("CameraDirector.h"));
+			MetaData->SetValue(NewProp_Camera, TEXT("Category"), TEXT("DirectorCam"));
+			MetaData->SetValue(NewProp_Camera, TEXT("ModuleRelativePath"), TEXT("CameraDirector.h"));
+#endif
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FDirectorCam_CRC() { return 3891216005U; }
+	void ACameraDirector::StaticRegisterNativesACameraDirector()
+	{
+	}
+	UClass* Z_Construct_UClass_ACameraDirector_NoRegister()
+	{
+		return ACameraDirector::StaticClass();
+	}
+	UClass* Z_Construct_UClass_ACameraDirector()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_AActor();
+			Z_Construct_UPackage__Script_GameplayRecipies();
+			OuterClass = ACameraDirector::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20900080;
+
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_TimeToNextCameraChange = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("TimeToNextCameraChange"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(TimeToNextCameraChange, ACameraDirector), 0x0010000000000001);
+				UProperty* NewProp_CameraList = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("CameraList"), RF_Public|RF_Transient|RF_MarkAsNative) UArrayProperty(CPP_PROPERTY_BASE(CameraList, ACameraDirector), 0x0010000000000001);
+				UProperty* NewProp_CameraList_Inner = new(EC_InternalUseOnlyConstructor, NewProp_CameraList, TEXT("CameraList"), RF_Public|RF_Transient|RF_MarkAsNative) UStructProperty(FObjectInitializer(), EC_CppProperty, 0, 0x0000000000000000, Z_Construct_UScriptStruct_FDirectorCam());
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+				static TCppClassTypeInfo<TCppClassTypeTraits<ACameraDirector> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("CameraDirector.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("CameraDirector.h"));
+				MetaData->SetValue(NewProp_TimeToNextCameraChange, TEXT("Category"), TEXT("CameraDirector"));
+				MetaData->SetValue(NewProp_TimeToNextCameraChange, TEXT("ModuleRelativePath"), TEXT("CameraDirector.h"));
+				MetaData->SetValue(NewProp_CameraList, TEXT("Category"), TEXT("CameraDirector"));
+				MetaData->SetValue(NewProp_CameraList, TEXT("ModuleRelativePath"), TEXT("CameraDirector.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(ACameraDirector, 2372468952);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_ACameraDirector(Z_Construct_UClass_ACameraDirector, &ACameraDirector::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("ACameraDirector"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(ACameraDirector);
 	void AGameplayRecipiesGameModeBase::StaticRegisterNativesAGameplayRecipiesGameModeBase()
 	{
 	}
@@ -221,8 +316,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/GameplayRecipies")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0xCAE681F9;
-			Guid.B = 0x2604F41F;
+			Guid.A = 0x3057F057;
+			Guid.B = 0xA4543CAE;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

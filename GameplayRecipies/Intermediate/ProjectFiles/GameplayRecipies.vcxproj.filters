@@ -46,9 +46,15 @@
     <ClInclude Include="..\..\Source\GameplayRecipies\LightSwitch.h">
       <Filter>Source\GameplayRecipies</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GameplayRecipies\CameraDirector.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\GameplayRecipies\LightSwitch.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GameplayRecipies\CameraDirector.cpp">
       <Filter>Source\GameplayRecipies</Filter>
     </ClCompile>
   </ItemGroup>

@@ -406,7 +406,9 @@
     <NMakeOutput>..\..\Binaries\HTML5\GameplayRecipies-HTML5-Shipping.exe</NMakeOutput>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\GameplayRecipies\CameraDirector.cpp" />
     <ClCompile Include="..\..\Source\GameplayRecipies\LightSwitch.cpp" />
+    <ClInclude Include="..\..\Source\GameplayRecipies\CameraDirector.h" />
     <ClInclude Include="..\..\Source\GameplayRecipies\LightSwitch.h" />
     <None Include="..\..\GameplayRecipies.uproject" />
     <None Include="..\..\Source\GameplayRecipies.Target.cs" />
