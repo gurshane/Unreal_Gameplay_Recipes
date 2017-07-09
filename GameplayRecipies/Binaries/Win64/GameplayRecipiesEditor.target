@@ -17,15 +17,15 @@
 	"BuildProducts" :
 	[
 		{
-			"Path" : "$(ProjectDir)/Binaries/Win64/UE4Editor-GameplayRecipies-8139.dll",
+			"Path" : "$(ProjectDir)/Binaries/Win64/UE4Editor-GameplayRecipies-3171.dll",
 			"Type" : "DynamicLibrary"
 		},
 		{
-			"Path" : "$(ProjectDir)/Binaries/Win64/UE4Editor-GameplayRecipies-8139.pdb",
+			"Path" : "$(ProjectDir)/Binaries/Win64/UE4Editor-GameplayRecipies-3171.pdb",
 			"Type" : "SymbolFile"
 		},
 		{
-			"Path" : "$(ProjectDir)/Intermediate/Build/Win64/UE4Editor/Development/UE4Editor-GameplayRecipies-8139.lib",
+			"Path" : "$(ProjectDir)/Intermediate/Build/Win64/UE4Editor/Development/UE4Editor-GameplayRecipies-3171.lib",
 			"Type" : "ImportLibrary"
 		},
 		{

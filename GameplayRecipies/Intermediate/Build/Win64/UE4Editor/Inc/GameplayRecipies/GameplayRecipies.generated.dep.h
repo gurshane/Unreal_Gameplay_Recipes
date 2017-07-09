@@ -14,3 +14,6 @@
 #ifndef GAMEPLAYRECIPIES_LightSwitch_generated_h
 	#include "LightSwitch.h"
 #endif
+#ifndef GAMEPLAYRECIPIES_MyPawn_generated_h
+	#include "MyPawn.h"
+#endif
