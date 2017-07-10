@@ -23,3 +23,6 @@
 #ifndef GAMEPLAYRECIPIES_MyPawn_generated_h
 	#include "MyPawn.h"
 #endif
+#ifndef GAMEPLAYRECIPIES_PawnWithCamera_generated_h
+	#include "PawnWithCamera.h"
+#endif

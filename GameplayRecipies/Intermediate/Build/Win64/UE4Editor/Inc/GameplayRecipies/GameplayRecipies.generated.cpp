@@ -42,6 +42,8 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ALightSwitch();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AMyPawn_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AMyPawn();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_APawnWithCamera_NoRegister();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_APawnWithCamera();
 	GAMEPLAYRECIPIES_API class UPackage* Z_Construct_UPackage__Script_GameplayRecipies();
 class UScriptStruct* FDirectorCam::StaticStruct()
 {
@@ -443,6 +445,44 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	IMPLEMENT_CLASS(AMyPawn, 2710587817);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AMyPawn(Z_Construct_UClass_AMyPawn, &AMyPawn::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AMyPawn"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AMyPawn);
+	void APawnWithCamera::StaticRegisterNativesAPawnWithCamera()
+	{
+	}
+	UClass* Z_Construct_UClass_APawnWithCamera_NoRegister()
+	{
+		return APawnWithCamera::StaticClass();
+	}
+	UClass* Z_Construct_UClass_APawnWithCamera()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_APawn();
+			Z_Construct_UPackage__Script_GameplayRecipies();
+			OuterClass = APawnWithCamera::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20900080;
+
+
+				static TCppClassTypeInfo<TCppClassTypeTraits<APawnWithCamera> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Navigation"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("PawnWithCamera.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("PawnWithCamera.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(APawnWithCamera, 2395088202);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_APawnWithCamera(Z_Construct_UClass_APawnWithCamera, &APawnWithCamera::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("APawnWithCamera"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(APawnWithCamera);
 	UPackage* Z_Construct_UPackage__Script_GameplayRecipies()
 	{
 		static UPackage* ReturnPackage = nullptr;
@@ -451,8 +491,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/GameplayRecipies")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0xFD254437;
-			Guid.B = 0xF63BD053;
+			Guid.A = 0xD97D180C;
+			Guid.B = 0x77501078;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);
