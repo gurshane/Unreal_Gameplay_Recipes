@@ -17,17 +17,22 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 // Cross Module References
 	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor();
+	ENGINE_API class UClass* Z_Construct_UClass_UPawnMovementComponent();
+	ENGINE_API class UClass* Z_Construct_UClass_APawn();
 	ENGINE_API class UClass* Z_Construct_UClass_AGameModeBase();
 	ENGINE_API class UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_UPointLightComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_APawn();
 	ENGINE_API class UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 
 	GAMEPLAYRECIPIES_API class UScriptStruct* Z_Construct_UScriptStruct_FDirectorCam();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ACameraDirector_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ACameraDirector();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_UCollidingPawnMovementComponent_NoRegister();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_UCollidingPawnMovementComponent();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ACollidingPawn_NoRegister();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ACollidingPawn();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AGameplayRecipiesGameModeBase_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AGameplayRecipiesGameModeBase();
 	GAMEPLAYRECIPIES_API class UFunction* Z_Construct_UFunction_ALightSwitch_OnOverlapBegin();
@@ -130,6 +135,88 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	IMPLEMENT_CLASS(ACameraDirector, 2372468952);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_ACameraDirector(Z_Construct_UClass_ACameraDirector, &ACameraDirector::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("ACameraDirector"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ACameraDirector);
+	void UCollidingPawnMovementComponent::StaticRegisterNativesUCollidingPawnMovementComponent()
+	{
+	}
+	UClass* Z_Construct_UClass_UCollidingPawnMovementComponent_NoRegister()
+	{
+		return UCollidingPawnMovementComponent::StaticClass();
+	}
+	UClass* Z_Construct_UClass_UCollidingPawnMovementComponent()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_UPawnMovementComponent();
+			Z_Construct_UPackage__Script_GameplayRecipies();
+			OuterClass = UCollidingPawnMovementComponent::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20B00084;
+
+
+				OuterClass->ClassConfigName = FName(TEXT("Engine"));
+				static TCppClassTypeInfo<TCppClassTypeTraits<UCollidingPawnMovementComponent> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("CollidingPawnMovementComponent.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("CollidingPawnMovementComponent.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(UCollidingPawnMovementComponent, 3510495132);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_UCollidingPawnMovementComponent(Z_Construct_UClass_UCollidingPawnMovementComponent, &UCollidingPawnMovementComponent::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("UCollidingPawnMovementComponent"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UCollidingPawnMovementComponent);
+	void ACollidingPawn::StaticRegisterNativesACollidingPawn()
+	{
+	}
+	UClass* Z_Construct_UClass_ACollidingPawn_NoRegister()
+	{
+		return ACollidingPawn::StaticClass();
+	}
+	UClass* Z_Construct_UClass_ACollidingPawn()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_APawn();
+			Z_Construct_UPackage__Script_GameplayRecipies();
+			OuterClass = ACollidingPawn::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20900080;
+
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_sprintSpeed = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("sprintSpeed"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(sprintSpeed, ACollidingPawn), 0x0010000000000001);
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+				static TCppClassTypeInfo<TCppClassTypeTraits<ACollidingPawn> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Navigation"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("CollidingPawn.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("CollidingPawn.h"));
+				MetaData->SetValue(NewProp_sprintSpeed, TEXT("Category"), TEXT("Colliding Pawn"));
+				MetaData->SetValue(NewProp_sprintSpeed, TEXT("ModuleRelativePath"), TEXT("CollidingPawn.h"));
+				MetaData->SetValue(NewProp_sprintSpeed, TEXT("ToolTip"), TEXT("Sets default values for this pawn's properties"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(ACollidingPawn, 1759347033);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_ACollidingPawn(Z_Construct_UClass_ACollidingPawn, &ACollidingPawn::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("ACollidingPawn"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(ACollidingPawn);
 	void AGameplayRecipiesGameModeBase::StaticRegisterNativesAGameplayRecipiesGameModeBase()
 	{
 	}
@@ -364,8 +451,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/GameplayRecipies")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0xF50844DA;
-			Guid.B = 0x72BC08E4;
+			Guid.A = 0xFD254437;
+			Guid.B = 0xF63BD053;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);
