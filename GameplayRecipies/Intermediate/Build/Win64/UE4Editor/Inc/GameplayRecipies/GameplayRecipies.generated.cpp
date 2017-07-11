@@ -466,6 +466,9 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->ClassFlags |= 0x20900080;
 
 
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_OurMesh = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("OurMesh"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(OurMesh, APawnWithCamera), 0x0010000000080009, Z_Construct_UClass_UStaticMeshComponent_NoRegister());
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				static TCppClassTypeInfo<TCppClassTypeTraits<APawnWithCamera> > StaticCppClassTypeInfo;
 				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
 				OuterClass->StaticLink();
@@ -474,13 +477,16 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Navigation"));
 				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("PawnWithCamera.h"));
 				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("PawnWithCamera.h"));
+				MetaData->SetValue(NewProp_OurMesh, TEXT("Category"), TEXT("PawnWithCamera"));
+				MetaData->SetValue(NewProp_OurMesh, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_OurMesh, TEXT("ModuleRelativePath"), TEXT("PawnWithCamera.h"));
 #endif
 			}
 		}
 		check(OuterClass->GetClass());
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APawnWithCamera, 2395088202);
+	IMPLEMENT_CLASS(APawnWithCamera, 3271648397);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_APawnWithCamera(Z_Construct_UClass_APawnWithCamera, &APawnWithCamera::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("APawnWithCamera"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(APawnWithCamera);
 	UPackage* Z_Construct_UPackage__Script_GameplayRecipies()
@@ -491,7 +497,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/GameplayRecipies")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0xD97D180C;
+			Guid.A = 0x78F815B9;
 			Guid.B = 0x77501078;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;

@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\GameplayRecipies.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{B5A145A7-9F08-49C2-833B-09526583603A}</UniqueIdentifier>
+			<UniqueIdentifier>{D72E408B-36CC-4022-B73A-B0F9B7676BAE}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\GameplayRecipies.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{4B5A7BED-3217-4E53-927D-1EC1740A54AF}</UniqueIdentifier>
+			<UniqueIdentifier>{86B4C505-ABCB-4F4A-9EBE-B1335AF3C5FB}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -28,7 +28,7 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\GameplayRecipies">
-			<UniqueIdentifier>{26B37522-7D14-4713-ABD4-8AA4901757E3}</UniqueIdentifier>
+			<UniqueIdentifier>{6CB5B5C5-25CC-4725-8320-90E9A27E3021}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\Source\GameplayRecipies\CameraDirector.cpp">
 			<Filter>Source\GameplayRecipies</Filter>

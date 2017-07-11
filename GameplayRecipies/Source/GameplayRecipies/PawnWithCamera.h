@@ -7,6 +7,7 @@
 #include "Camera/CameraComponent.h"
 
 #include "Components/InputComponent.h"
+#include "Components/StaticMeshComponent.h"
 
 #include "GameFramework/Pawn.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -27,6 +28,9 @@ public:
 	float ZoomFactor;
 	
 	bool bZoomingIn;
+
+	UPROPERTY(EditAnywhere, Category = "PawnWithCamera")
+	UStaticMeshComponent* OurMesh;
 
 protected:
 

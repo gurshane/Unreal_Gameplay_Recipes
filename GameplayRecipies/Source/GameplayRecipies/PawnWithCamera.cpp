@@ -21,6 +21,9 @@ APawnWithCamera::APawnWithCamera()
 	OurCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	OurCamera->SetupAttachment(OurCameraSpringArm, USpringArmComponent::SocketName);
 
+	OurMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	OurMesh->SetupAttachment(RootComponent);
+
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 }
 
@@ -35,6 +38,36 @@ void APawnWithCamera::BeginPlay()
 void APawnWithCamera::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	//If we are pressing the zoom in button
+	if (bZoomingIn)
+	{
+		//zoom in, in 1/2 a second
+		ZoomFactor += (DeltaTime / 0.5f);
+	}
+	else
+	{
+		//otherwise zoom out in 1/4 a second
+		ZoomFactor -= (DeltaTime / 0.25f);
+	}
+	ZoomFactor = FMath::Clamp<float>(ZoomFactor, 0.0f, 1.0f);
+	OurCamera->FieldOfView = FMath::Lerp<float>(90.0f, 60.0f, ZoomFactor); //lerp between 90 and 60 degree FOV by ZoomFactor
+	OurCameraSpringArm->TargetArmLength = FMath::Lerp<float>(400.0f, 300.0f, ZoomFactor); //bring the camera closer as well to enhance zoom effect
+
+	//Update spring arm rotation with mouse input
+	FRotator ArmRotation = OurCameraSpringArm->GetComponentRotation();
+	ArmRotation.Pitch = FMath::Clamp<float>(ArmRotation.Pitch + CameraInput.Y, -80.0f, -15.0f);
+	ArmRotation.Yaw = FMath::Clamp<float>(ArmRotation.Yaw + CameraInput.X, -80.0f, -15.0f);
+	OurCameraSpringArm->SetWorldRotation(ArmRotation);
+
+	if (!MovementInput.IsZero())
+	{
+		MovementInput = MovementInput.SafeNormal() * 100.0f;
+		FVector NewLocation = GetActorLocation();
+		NewLocation += GetActorForwardVector() * MovementInput.X * DeltaTime;
+		NewLocation += GetActorRightVector() * MovementInput.Y * DeltaTime;
+		SetActorLocation(NewLocation);
+	}
 
 }
 

@@ -13,9 +13,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define GAMEPLAYRECIPIES_PawnWithCamera_generated_h
 
-#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_RPC_WRAPPERS
-#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_RPC_WRAPPERS_NO_PURE_DECLS
-#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_INCLASS_NO_PURE_DECLS \
+#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_RPC_WRAPPERS
+#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_RPC_WRAPPERS_NO_PURE_DECLS
+#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPawnWithCamera(); \
 	friend GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_APawnWithCamera(); \
@@ -25,7 +25,7 @@ public: \
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_INCLASS \
+#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_INCLASS \
 private: \
 	static void StaticRegisterNativesAPawnWithCamera(); \
 	friend GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_APawnWithCamera(); \
@@ -35,7 +35,7 @@ public: \
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_STANDARD_CONSTRUCTORS \
+#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API APawnWithCamera(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(APawnWithCamera) \
@@ -48,7 +48,7 @@ private: \
 public:
 
 
-#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_ENHANCED_CONSTRUCTORS \
+#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API APawnWithCamera(APawnWithCamera&&); \
@@ -59,26 +59,26 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APawnWithCamera); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(APawnWithCamera)
 
 
-#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_PRIVATE_PROPERTY_OFFSET
-#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_16_PROLOG
-#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_GENERATED_BODY_LEGACY \
+#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_PRIVATE_PROPERTY_OFFSET
+#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_17_PROLOG
+#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_PRIVATE_PROPERTY_OFFSET \
-	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_RPC_WRAPPERS \
-	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_INCLASS \
-	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_STANDARD_CONSTRUCTORS \
+	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_PRIVATE_PROPERTY_OFFSET \
+	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_RPC_WRAPPERS \
+	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_INCLASS \
+	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_GENERATED_BODY \
+#define GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_PRIVATE_PROPERTY_OFFSET \
-	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
-	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_INCLASS_NO_PURE_DECLS \
-	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_19_ENHANCED_CONSTRUCTORS \
+	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_PRIVATE_PROPERTY_OFFSET \
+	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_INCLASS_NO_PURE_DECLS \
+	GameplayRecipies_Source_GameplayRecipies_PawnWithCamera_h_20_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
