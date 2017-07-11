@@ -1,0 +1,22 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-GameplayRecipies-8923.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Program Files\Epic Games\UE_4.16\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h.obj"
+"C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Intermediate\Build\Win64\UE4Editor\Development\GameplayRecipies\CameraDirector.cpp.obj"
+"C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Intermediate\Build\Win64\UE4Editor\Development\GameplayRecipies\CollidingPawn.cpp.obj"
+"C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Intermediate\Build\Win64\UE4Editor\Development\GameplayRecipies\CollidingPawnMovementComponent.cpp.obj"
+"C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Intermediate\Build\Win64\UE4Editor\Development\GameplayRecipies\GameplayRecipies.cpp.obj"
+"C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Intermediate\Build\Win64\UE4Editor\Development\GameplayRecipies\GameplayRecipiesGameModeBase.cpp.obj"
+"C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Intermediate\Build\Win64\UE4Editor\Development\GameplayRecipies\LightSwitch.cpp.obj"
+"C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Intermediate\Build\Win64\UE4Editor\Development\GameplayRecipies\MyPawn.cpp.obj"
+"C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Intermediate\Build\Win64\UE4Editor\Development\GameplayRecipies\PawnWithCamera.cpp.obj"
+"C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Intermediate\Build\Win64\UE4Editor\Development\GameplayRecipies\UMGGameMode.cpp.obj"
+"C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Intermediate\Build\Win64\UE4Editor\Development\GameplayRecipies\GameplayRecipies.generated.cpp.obj"
+"C:\Program Files\Epic Games\UE_4.16\Engine\Intermediate\Build\Win64\UE4Editor\Development\GameplayRecipies\PCLaunch.rc.res"
+"C:\Program Files\Epic Games\UE_4.16\Engine\Intermediate\Build\Win64\UE4Editor\Development\ModuleVersionResource.rc.inl.res"
+/OUT:"C:\gsidhu\Unreal\GameplayRecipes\GameplayRecipies\Intermediate\Build\Win64\UE4Editor\Development\UE4Editor-GameplayRecipies-8923.lib"

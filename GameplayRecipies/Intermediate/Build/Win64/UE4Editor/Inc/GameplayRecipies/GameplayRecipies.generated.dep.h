@@ -26,3 +26,9 @@
 #ifndef GAMEPLAYRECIPIES_PawnWithCamera_generated_h
 	#include "PawnWithCamera.h"
 #endif
+#ifndef GAMEPLAYRECIPIES_UMGGameMode_generated_h
+	#include "UMGGameMode.h"
+#endif
+#ifndef GAMEPLAYRECIPIES_UMGPlayerController_generated_h
+	#include "UMGPlayerController.h"
+#endif

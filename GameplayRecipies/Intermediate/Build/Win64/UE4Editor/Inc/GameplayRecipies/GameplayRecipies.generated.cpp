@@ -25,6 +25,8 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_UPointLightComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+	UMG_API class UClass* Z_Construct_UClass_UUserWidget_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_APlayerController();
 
 	GAMEPLAYRECIPIES_API class UScriptStruct* Z_Construct_UScriptStruct_FDirectorCam();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ACameraDirector_NoRegister();
@@ -44,6 +46,11 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AMyPawn();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_APawnWithCamera_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_APawnWithCamera();
+	GAMEPLAYRECIPIES_API class UFunction* Z_Construct_UFunction_AUMGGameMode_ChangeMenuWidget();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AUMGGameMode_NoRegister();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AUMGGameMode();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AUMGPlayerController_NoRegister();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AUMGPlayerController();
 	GAMEPLAYRECIPIES_API class UPackage* Z_Construct_UPackage__Script_GameplayRecipies();
 class UScriptStruct* FDirectorCam::StaticStruct()
 {
@@ -489,6 +496,124 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	IMPLEMENT_CLASS(APawnWithCamera, 3271648397);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_APawnWithCamera(Z_Construct_UClass_APawnWithCamera, &APawnWithCamera::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("APawnWithCamera"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(APawnWithCamera);
+	void AUMGGameMode::StaticRegisterNativesAUMGGameMode()
+	{
+		UClass* Class = AUMGGameMode::StaticClass();
+		static const TNameNativePtrPair<ANSICHAR> AnsiFuncs[] = {
+			{ "ChangeMenuWidget", (Native)&AUMGGameMode::execChangeMenuWidget },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, AnsiFuncs, 1);
+	}
+	UFunction* Z_Construct_UFunction_AUMGGameMode_ChangeMenuWidget()
+	{
+		struct UMGGameMode_eventChangeMenuWidget_Parms
+		{
+			TSubclassOf<UUserWidget>  NewWidgetClass;
+		};
+		UObject* Outer=Z_Construct_UClass_AUMGGameMode();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("ChangeMenuWidget"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04020401, 65535, sizeof(UMGGameMode_eventChangeMenuWidget_Parms));
+			UProperty* NewProp_NewWidgetClass = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("NewWidgetClass"), RF_Public|RF_Transient|RF_MarkAsNative) UClassProperty(CPP_PROPERTY_BASE(NewWidgetClass, UMGGameMode_eventChangeMenuWidget_Parms), 0x0014000000000080, Z_Construct_UClass_UUserWidget_NoRegister(), UClass::StaticClass());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("UMG Game"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("UMGGameMode.h"));
+			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("This function will deactivate the default menu widget and replace it with some widget\nthat is a subclass of UUserWidget"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UClass* Z_Construct_UClass_AUMGGameMode_NoRegister()
+	{
+		return AUMGGameMode::StaticClass();
+	}
+	UClass* Z_Construct_UClass_AUMGGameMode()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_AGameModeBase();
+			Z_Construct_UPackage__Script_GameplayRecipies();
+			OuterClass = AUMGGameMode::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20900288;
+
+				OuterClass->LinkChild(Z_Construct_UFunction_AUMGGameMode_ChangeMenuWidget());
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_CurrentWidget = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("CurrentWidget"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(CurrentWidget, AUMGGameMode), 0x0020080000080008, Z_Construct_UClass_UUserWidget_NoRegister());
+				UProperty* NewProp_StartingWidgetClass = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("StartingWidgetClass"), RF_Public|RF_Transient|RF_MarkAsNative) UClassProperty(CPP_PROPERTY_BASE(StartingWidgetClass, AUMGGameMode), 0x0024080000000015, Z_Construct_UClass_UUserWidget_NoRegister(), UClass::StaticClass());
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_AUMGGameMode_ChangeMenuWidget(), "ChangeMenuWidget"); // 3436910576
+				static TCppClassTypeInfo<TCppClassTypeTraits<AUMGGameMode> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering Utilities|Transformation"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("UMGGameMode.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("UMGGameMode.h"));
+				MetaData->SetValue(OuterClass, TEXT("ShowCategories"), TEXT("Input|MouseInput Input|TouchInput"));
+				MetaData->SetValue(NewProp_CurrentWidget, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_CurrentWidget, TEXT("ModuleRelativePath"), TEXT("UMGGameMode.h"));
+				MetaData->SetValue(NewProp_CurrentWidget, TEXT("ToolTip"), TEXT("What the current menu widget is (so we can turn it on/off)"));
+				MetaData->SetValue(NewProp_StartingWidgetClass, TEXT("Category"), TEXT("UMG Game"));
+				MetaData->SetValue(NewProp_StartingWidgetClass, TEXT("ModuleRelativePath"), TEXT("UMGGameMode.h"));
+				MetaData->SetValue(NewProp_StartingWidgetClass, TEXT("ToolTip"), TEXT("The widget we want to replace the default one with"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(AUMGGameMode, 2272191840);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_AUMGGameMode(Z_Construct_UClass_AUMGGameMode, &AUMGGameMode::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AUMGGameMode"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(AUMGGameMode);
+	void AUMGPlayerController::StaticRegisterNativesAUMGPlayerController()
+	{
+	}
+	UClass* Z_Construct_UClass_AUMGPlayerController_NoRegister()
+	{
+		return AUMGPlayerController::StaticClass();
+	}
+	UClass* Z_Construct_UClass_AUMGPlayerController()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_APlayerController();
+			Z_Construct_UPackage__Script_GameplayRecipies();
+			OuterClass = AUMGPlayerController::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20900284;
+
+
+				OuterClass->ClassConfigName = FName(TEXT("Game"));
+				static TCppClassTypeInfo<TCppClassTypeTraits<AUMGPlayerController> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Collision Rendering Utilities|Transformation"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("UMGPlayerController.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("UMGPlayerController.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(AUMGPlayerController, 941565905);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_AUMGPlayerController(Z_Construct_UClass_AUMGPlayerController, &AUMGPlayerController::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AUMGPlayerController"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(AUMGPlayerController);
 	UPackage* Z_Construct_UPackage__Script_GameplayRecipies()
 	{
 		static UPackage* ReturnPackage = nullptr;
@@ -497,8 +622,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/GameplayRecipies")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0x78F815B9;
-			Guid.B = 0x77501078;
+			Guid.A = 0x919B9A0B;
+			Guid.B = 0x508395CF;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

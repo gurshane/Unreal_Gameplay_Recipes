@@ -1,85 +1,100 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<ItemGroup>
-		<None Include="..\..\GameplayRecipies.uproject" />
-		<Filter Include="Source">
-			<UniqueIdentifier>{D72E408B-36CC-4022-B73A-B0F9B7676BAE}</UniqueIdentifier>
-		</Filter>
-		<None Include="..\..\Source\GameplayRecipies.Target.cs">
-			<Filter>Source</Filter>
-		</None >
-		<None Include="..\..\Source\GameplayRecipiesEditor.Target.cs">
-			<Filter>Source</Filter>
-		</None >
-		<Filter Include="Config">
-			<UniqueIdentifier>{86B4C505-ABCB-4F4A-9EBE-B1335AF3C5FB}</UniqueIdentifier>
-		</Filter>
-		<None Include="..\..\Config\DefaultEditor.ini">
-			<Filter>Config</Filter>
-		</None >
-		<None Include="..\..\Config\DefaultEngine.ini">
-			<Filter>Config</Filter>
-		</None >
-		<None Include="..\..\Config\DefaultGame.ini">
-			<Filter>Config</Filter>
-		</None >
-		<None Include="..\..\Config\DefaultInput.ini">
-			<Filter>Config</Filter>
-		</None >
-		<Filter Include="Source\GameplayRecipies">
-			<UniqueIdentifier>{6CB5B5C5-25CC-4725-8320-90E9A27E3021}</UniqueIdentifier>
-		</Filter>
-		<ClCompile Include="..\..\Source\GameplayRecipies\CameraDirector.cpp">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\GameplayRecipies\CameraDirector.h">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\GameplayRecipies\CollidingPawn.cpp">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\GameplayRecipies\CollidingPawn.h">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\GameplayRecipies\CollidingPawnMovementComponent.cpp">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\GameplayRecipies\CollidingPawnMovementComponent.h">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClInclude >
-		<None Include="..\..\Source\GameplayRecipies\GameplayRecipies.Build.cs">
-			<Filter>Source\GameplayRecipies</Filter>
-		</None >
-		<ClCompile Include="..\..\Source\GameplayRecipies\GameplayRecipies.cpp">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\GameplayRecipies\GameplayRecipies.h">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\GameplayRecipies\GameplayRecipiesGameModeBase.cpp">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\GameplayRecipies\GameplayRecipiesGameModeBase.h">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\GameplayRecipies\LightSwitch.cpp">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\GameplayRecipies\LightSwitch.h">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\GameplayRecipies\MyPawn.cpp">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\GameplayRecipies\MyPawn.h">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\GameplayRecipies\PawnWithCamera.cpp">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\GameplayRecipies\PawnWithCamera.h">
-			<Filter>Source\GameplayRecipies</Filter>
-		</ClInclude >
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\GameplayRecipies.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{A954B49E-5F4C-4BD4-8DB6-477CFFB2CD34}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\GameplayRecipies.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\GameplayRecipiesEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{D175D37F-7F4D-4E5A-8F00-B128FF849C79}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\GameplayRecipies">
+      <UniqueIdentifier>{FC09887D-FD3F-4272-A3C9-A2F385BF421B}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GameplayRecipies\CameraDirector.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\CameraDirector.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameplayRecipies\CollidingPawn.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\CollidingPawn.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameplayRecipies\CollidingPawnMovementComponent.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\CollidingPawnMovementComponent.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\GameplayRecipies\GameplayRecipies.Build.cs">
+      <Filter>Source\GameplayRecipies</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\GameplayRecipies\GameplayRecipies.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\GameplayRecipies.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameplayRecipies\GameplayRecipiesGameModeBase.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\GameplayRecipiesGameModeBase.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameplayRecipies\LightSwitch.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\LightSwitch.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameplayRecipies\MyPawn.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\MyPawn.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameplayRecipies\PawnWithCamera.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\PawnWithCamera.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameplayRecipies\UMGGameMode.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\UMGGameMode.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\GameplayRecipies\UMGPlayerController.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\GameplayRecipies\UMGPlayerController.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
