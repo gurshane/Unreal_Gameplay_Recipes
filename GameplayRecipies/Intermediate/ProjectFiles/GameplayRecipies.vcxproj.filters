@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\GameplayRecipies.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{A954B49E-5F4C-4BD4-8DB6-477CFFB2CD34}</UniqueIdentifier>
+      <UniqueIdentifier>{26872DE5-A7FD-4D74-94F2-F86B2DB7351E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\GameplayRecipies.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{D175D37F-7F4D-4E5A-8F00-B128FF849C79}</UniqueIdentifier>
+      <UniqueIdentifier>{12AD3D6B-D13E-4F32-A28D-7C29B605703A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,8 +27,14 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\GameplayRecipies">
-      <UniqueIdentifier>{FC09887D-FD3F-4272-A3C9-A2F385BF421B}</UniqueIdentifier>
+      <UniqueIdentifier>{0C1F5DEB-3253-4930-BD9A-641CAE7D6E70}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\GameplayRecipies\ActionPlayerController.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameplayRecipies\ActionPlayerController.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\GameplayRecipies\CameraDirector.cpp">
       <Filter>Source\GameplayRecipies</Filter>
     </ClCompile>
@@ -86,14 +92,20 @@
     <ClInclude Include="..\..\Source\GameplayRecipies\UMGGameMode.h">
       <Filter>Source\GameplayRecipies</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="..\..\Source\GameplayRecipies\UMGPlayerController.cpp">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClCompile>
     <ClInclude Include="..\..\Source\GameplayRecipies\UMGPlayerController.h">
       <Filter>Source\GameplayRecipies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\GameplayRecipies\UMGPlayerController.cpp">
+    <ClInclude Include="..\..\Source\GameplayRecipies\ActionPawn.h">
+      <Filter>Source\GameplayRecipies</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\GameplayRecipies\ActionPawn.cpp">
       <Filter>Source\GameplayRecipies</Filter>
     </ClCompile>
   </ItemGroup>

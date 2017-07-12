@@ -5,6 +5,12 @@
 ===========================================================================*/
 
 #include "GeneratedCppIncludes.h"
+#ifndef GAMEPLAYRECIPIES_ActionPawn_generated_h
+	#include "ActionPawn.h"
+#endif
+#ifndef GAMEPLAYRECIPIES_ActionPlayerController_generated_h
+	#include "ActionPlayerController.h"
+#endif
 #ifndef GAMEPLAYRECIPIES_CameraDirector_generated_h
 	#include "CameraDirector.h"
 #endif
