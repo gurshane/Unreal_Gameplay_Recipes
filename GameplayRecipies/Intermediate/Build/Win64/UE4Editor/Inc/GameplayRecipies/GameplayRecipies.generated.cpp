@@ -15,19 +15,23 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 #if USE_COMPILED_IN_NATIVES
 // Cross Module References
+	ENGINE_API class UClass* Z_Construct_UClass_AGameModeBase();
 	ENGINE_API class UClass* Z_Construct_UClass_APawn();
+	ENGINE_API class UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_APlayerController();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_UPawnMovementComponent();
-	ENGINE_API class UClass* Z_Construct_UClass_AGameModeBase();
 	ENGINE_API class UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_UPointLightComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	UMG_API class UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionGameMode_NoRegister();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionGameMode();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionPawn_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionPawn();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionPlayerController_NoRegister();
@@ -56,6 +60,45 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AUMGPlayerController_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AUMGPlayerController();
 	GAMEPLAYRECIPIES_API class UPackage* Z_Construct_UPackage__Script_GameplayRecipies();
+	void AActionGameMode::StaticRegisterNativesAActionGameMode()
+	{
+	}
+	UClass* Z_Construct_UClass_AActionGameMode_NoRegister()
+	{
+		return AActionGameMode::StaticClass();
+	}
+	UClass* Z_Construct_UClass_AActionGameMode()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_AGameModeBase();
+			Z_Construct_UPackage__Script_GameplayRecipies();
+			OuterClass = AActionGameMode::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20900288;
+
+
+				static TCppClassTypeInfo<TCppClassTypeTraits<AActionGameMode> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering Utilities|Transformation"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("ActionGameMode.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("ActionGameMode.h"));
+				MetaData->SetValue(OuterClass, TEXT("ShowCategories"), TEXT("Input|MouseInput Input|TouchInput"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(AActionGameMode, 1472542392);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_AActionGameMode(Z_Construct_UClass_AActionGameMode, &AActionGameMode::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AActionGameMode"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(AActionGameMode);
 	void AActionPawn::StaticRegisterNativesAActionPawn()
 	{
 	}
@@ -77,6 +120,13 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 				OuterClass->ClassFlags |= 0x20900080;
 
 
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_cameraLagSpeed = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("cameraLagSpeed"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(cameraLagSpeed, AActionPawn), 0x0010000000000001);
+				UProperty* NewProp_MyFirstPersonCam = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MyFirstPersonCam"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MyFirstPersonCam, AActionPawn), 0x0010000000080008, Z_Construct_UClass_UCameraComponent_NoRegister());
+				UProperty* NewProp_MyThirdPersonCam = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MyThirdPersonCam"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MyThirdPersonCam, AActionPawn), 0x0010000000080008, Z_Construct_UClass_UCameraComponent_NoRegister());
+				UProperty* NewProp_MySpringArmComponent = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MySpringArmComponent"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MySpringArmComponent, AActionPawn), 0x0010000000080008, Z_Construct_UClass_USpringArmComponent_NoRegister());
+				UProperty* NewProp_MySphereComponent = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MySphereComponent"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MySphereComponent, AActionPawn), 0x0010000000080008, Z_Construct_UClass_USphereComponent_NoRegister());
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				static TCppClassTypeInfo<TCppClassTypeTraits<AActionPawn> > StaticCppClassTypeInfo;
 				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
 				OuterClass->StaticLink();
@@ -85,13 +135,23 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Navigation"));
 				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("ActionPawn.h"));
 				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
+				MetaData->SetValue(NewProp_cameraLagSpeed, TEXT("Category"), TEXT("Action Pawn"));
+				MetaData->SetValue(NewProp_cameraLagSpeed, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
+				MetaData->SetValue(NewProp_MyFirstPersonCam, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_MyFirstPersonCam, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
+				MetaData->SetValue(NewProp_MyThirdPersonCam, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_MyThirdPersonCam, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
+				MetaData->SetValue(NewProp_MySpringArmComponent, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_MySpringArmComponent, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
+				MetaData->SetValue(NewProp_MySphereComponent, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_MySphereComponent, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
 #endif
 			}
 		}
 		check(OuterClass->GetClass());
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AActionPawn, 1625158744);
+	IMPLEMENT_CLASS(AActionPawn, 3135815100);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AActionPawn(Z_Construct_UClass_AActionPawn, &AActionPawn::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AActionPawn"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AActionPawn);
 	void AActionPlayerController::StaticRegisterNativesAActionPlayerController()
@@ -115,6 +175,10 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 				OuterClass->ClassFlags |= 0x20900284;
 
 
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				CPP_BOOL_PROPERTY_BITMASK_STRUCT(inThirdPerson, AActionPlayerController, bool);
+				UProperty* NewProp_inThirdPerson = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("inThirdPerson"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(inThirdPerson, AActionPlayerController), 0x0010000000000000, CPP_BOOL_PROPERTY_BITMASK(inThirdPerson, AActionPlayerController), sizeof(bool), true);
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->ClassConfigName = FName(TEXT("Game"));
 				static TCppClassTypeInfo<TCppClassTypeTraits<AActionPlayerController> > StaticCppClassTypeInfo;
 				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
@@ -124,13 +188,14 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Collision Rendering Utilities|Transformation"));
 				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("ActionPlayerController.h"));
 				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+				MetaData->SetValue(NewProp_inThirdPerson, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
 #endif
 			}
 		}
 		check(OuterClass->GetClass());
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AActionPlayerController, 2960644418);
+	IMPLEMENT_CLASS(AActionPlayerController, 2591692579);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AActionPlayerController(Z_Construct_UClass_AActionPlayerController, &AActionPlayerController::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AActionPlayerController"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AActionPlayerController);
 class UScriptStruct* FDirectorCam::StaticStruct()
@@ -703,8 +768,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/GameplayRecipies")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0x4DDAEDEA;
-			Guid.B = 0xA29FBC17;
+			Guid.A = 0xAE891A40;
+			Guid.B = 0x5CE5ACB6;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

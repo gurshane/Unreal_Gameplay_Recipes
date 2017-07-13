@@ -3,7 +3,16 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ConstructorHelpers.h"
+
+#include "Components/SphereComponent.h"
+#include "Components/StaticMeshComponent.h"
+
+#include "Camera/CameraComponent.h"
+
+#include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/Pawn.h"
+
 #include "ActionPawn.generated.h"
 
 UCLASS()
@@ -12,8 +21,21 @@ class GAMEPLAYRECIPIES_API AActionPawn : public APawn
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
-	AActionPawn();
+	
+	UPROPERTY()
+	USphereComponent* MySphereComponent;
+
+	UPROPERTY()
+	USpringArmComponent* MySpringArmComponent;
+
+	UPROPERTY()
+	UCameraComponent* MyThirdPersonCam;
+
+	UPROPERTY()
+	UCameraComponent* MyFirstPersonCam;
+
+	UPROPERTY(EditAnywhere, Category="Action Pawn")
+	float cameraLagSpeed;
 
 protected:
 	// Called when the game starts or when spawned
@@ -23,5 +45,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
-	
+	// Sets default values for this pawn's properties
+	AActionPawn();
+
+	USphereComponent* GetMySphereComponent();
+
+	USpringArmComponent* GetMySpringArmComponent();
+
+	UCameraComponent* GetMyThirdPersonCam();
+
+	UCameraComponent* GetMyFirstPersonCam();
+
 };

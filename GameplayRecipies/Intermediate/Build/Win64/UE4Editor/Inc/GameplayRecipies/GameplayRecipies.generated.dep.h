@@ -5,6 +5,9 @@
 ===========================================================================*/
 
 #include "GeneratedCppIncludes.h"
+#ifndef GAMEPLAYRECIPIES_ActionGameMode_generated_h
+	#include "ActionGameMode.h"
+#endif
 #ifndef GAMEPLAYRECIPIES_ActionPawn_generated_h
 	#include "ActionPawn.h"
 #endif

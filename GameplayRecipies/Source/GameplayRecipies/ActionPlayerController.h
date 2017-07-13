@@ -17,6 +17,11 @@ UCLASS()
 class GAMEPLAYRECIPIES_API AActionPlayerController : public APlayerController
 {
 	GENERATED_BODY()
+
+public:
+
+	UPROPERTY()
+	bool inThirdPerson;
 	
 protected:
 
@@ -27,4 +32,6 @@ public:
 	void MoveHorizontal(float value);
 
 	void MoveVertical(float value);
+
+	void ToggleCam();
 };

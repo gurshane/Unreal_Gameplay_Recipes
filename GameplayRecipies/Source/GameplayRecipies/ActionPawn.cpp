@@ -9,6 +9,42 @@ AActionPawn::AActionPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	//Create collider
+	MySphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("Collider"));
+	MySphereComponent->InitSphereRadius(40.0f);
+	MySphereComponent->SetCollisionProfileName(TEXT("Pawn"));
+	RootComponent = MySphereComponent;
+	
+	//Create and display mesh
+	UStaticMeshComponent* MyMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	MyMesh->SetupAttachment(RootComponent);
+	
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> SphereVisual(TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere"));
+	if (SphereVisual.Succeeded())
+	{
+		MyMesh->SetStaticMesh(SphereVisual.Object);
+		MyMesh->SetWorldScale3D(FVector(1.0f));
+	}
+
+	//Create spring arm for third person cam
+	MySpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+	MySpringArmComponent->SetRelativeRotation(FRotator(-45.0f, 0.0f, 0.0f));
+	MySpringArmComponent->TargetArmLength = 350.0f;
+	MySpringArmComponent->bEnableCameraLag = true;
+	MySpringArmComponent->CameraLagSpeed = cameraLagSpeed;
+	MySpringArmComponent->SetupAttachment(RootComponent);
+
+	//Create and attach third person cam to spring arm
+	MyThirdPersonCam = CreateDefaultSubobject<UCameraComponent>(TEXT("ThirdPersonCam"));
+	MyThirdPersonCam->SetupAttachment(MySpringArmComponent, USpringArmComponent::SocketName);
+	MyThirdPersonCam->bAutoActivate = true;
+
+	//Create and attach first person cam to root
+	MyFirstPersonCam = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCam"));
+	MyFirstPersonCam->SetRelativeLocation(FVector(0.0f, 20.0f, 0.0f));
+	MyFirstPersonCam->SetupAttachment(RootComponent);
+	MyFirstPersonCam->bAutoActivate = false;
+	MyFirstPersonCam->Activate = false;
 }
 
 // Called when the game starts or when spawned
@@ -24,6 +60,26 @@ void AActionPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+USphereComponent* AActionPawn::GetMySphereComponent()
+{
+	return MySphereComponent;
+}
+
+USpringArmComponent* AActionPawn::GetMySpringArmComponent()
+{
+	return MySpringArmComponent;
+}
+
+UCameraComponent* AActionPawn::GetMyFirstPersonCam()
+{
+	return MyFirstPersonCam;
+}
+
+UCameraComponent* AActionPawn::GetMyThirdPersonCam()
+{
+	return MyThirdPersonCam;
 }
 
 
