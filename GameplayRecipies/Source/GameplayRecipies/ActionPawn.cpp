@@ -44,7 +44,7 @@ AActionPawn::AActionPawn()
 	MyFirstPersonCam->SetRelativeLocation(FVector(0.0f, 20.0f, 0.0f));
 	MyFirstPersonCam->SetupAttachment(RootComponent);
 	MyFirstPersonCam->bAutoActivate = false;
-	MyFirstPersonCam->Activate = false;
+	MyFirstPersonCam->Activate(false);
 }
 
 // Called when the game starts or when spawned

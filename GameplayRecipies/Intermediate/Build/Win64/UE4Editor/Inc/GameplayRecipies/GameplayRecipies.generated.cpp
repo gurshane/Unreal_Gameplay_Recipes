@@ -34,6 +34,10 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionGameMode();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionPawn_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionPawn();
+	GAMEPLAYRECIPIES_API class UFunction* Z_Construct_UFunction_AActionPlayerController_MoveHorizontal();
+	GAMEPLAYRECIPIES_API class UFunction* Z_Construct_UFunction_AActionPlayerController_MoveVertical();
+	GAMEPLAYRECIPIES_API class UFunction* Z_Construct_UFunction_AActionPlayerController_PitchCamera();
+	GAMEPLAYRECIPIES_API class UFunction* Z_Construct_UFunction_AActionPlayerController_TurnCamera();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionPlayerController_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionPlayerController();
 	GAMEPLAYRECIPIES_API class UScriptStruct* Z_Construct_UScriptStruct_FDirectorCam();
@@ -156,6 +160,98 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AActionPawn);
 	void AActionPlayerController::StaticRegisterNativesAActionPlayerController()
 	{
+		UClass* Class = AActionPlayerController::StaticClass();
+		static const TNameNativePtrPair<ANSICHAR> AnsiFuncs[] = {
+			{ "MoveHorizontal", (Native)&AActionPlayerController::execMoveHorizontal },
+			{ "MoveVertical", (Native)&AActionPlayerController::execMoveVertical },
+			{ "PitchCamera", (Native)&AActionPlayerController::execPitchCamera },
+			{ "TurnCamera", (Native)&AActionPlayerController::execTurnCamera },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, AnsiFuncs, 4);
+	}
+	UFunction* Z_Construct_UFunction_AActionPlayerController_MoveHorizontal()
+	{
+		struct ActionPlayerController_eventMoveHorizontal_Parms
+		{
+			float value;
+		};
+		UObject* Outer=Z_Construct_UClass_AActionPlayerController();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("MoveHorizontal"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x00020401, 65535, sizeof(ActionPlayerController_eventMoveHorizontal_Parms));
+			UProperty* NewProp_value = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("value"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(value, ActionPlayerController_eventMoveHorizontal_Parms), 0x0010000000000080);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_AActionPlayerController_MoveVertical()
+	{
+		struct ActionPlayerController_eventMoveVertical_Parms
+		{
+			float value;
+		};
+		UObject* Outer=Z_Construct_UClass_AActionPlayerController();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("MoveVertical"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x00020401, 65535, sizeof(ActionPlayerController_eventMoveVertical_Parms));
+			UProperty* NewProp_value = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("value"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(value, ActionPlayerController_eventMoveVertical_Parms), 0x0010000000000080);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_AActionPlayerController_PitchCamera()
+	{
+		struct ActionPlayerController_eventPitchCamera_Parms
+		{
+			float value;
+		};
+		UObject* Outer=Z_Construct_UClass_AActionPlayerController();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("PitchCamera"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x00020401, 65535, sizeof(ActionPlayerController_eventPitchCamera_Parms));
+			UProperty* NewProp_value = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("value"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(value, ActionPlayerController_eventPitchCamera_Parms), 0x0010000000000080);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_AActionPlayerController_TurnCamera()
+	{
+		struct ActionPlayerController_eventTurnCamera_Parms
+		{
+			float value;
+		};
+		UObject* Outer=Z_Construct_UClass_AActionPlayerController();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("TurnCamera"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x00020401, 65535, sizeof(ActionPlayerController_eventTurnCamera_Parms));
+			UProperty* NewProp_value = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("value"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(value, ActionPlayerController_eventTurnCamera_Parms), 0x0010000000000080);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+#endif
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_AActionPlayerController_NoRegister()
 	{
@@ -174,11 +270,25 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				UObjectForceRegistration(OuterClass);
 				OuterClass->ClassFlags |= 0x20900284;
 
+				OuterClass->LinkChild(Z_Construct_UFunction_AActionPlayerController_MoveHorizontal());
+				OuterClass->LinkChild(Z_Construct_UFunction_AActionPlayerController_MoveVertical());
+				OuterClass->LinkChild(Z_Construct_UFunction_AActionPlayerController_PitchCamera());
+				OuterClass->LinkChild(Z_Construct_UFunction_AActionPlayerController_TurnCamera());
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_maxFirstPersonYaw = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("maxFirstPersonYaw"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(maxFirstPersonYaw, AActionPlayerController), 0x0010000000000001);
+				UProperty* NewProp_minFirstPersonYaw = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("minFirstPersonYaw"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(minFirstPersonYaw, AActionPlayerController), 0x0010000000000001);
+				UProperty* NewProp_maxFirstPersonPitch = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("maxFirstPersonPitch"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(maxFirstPersonPitch, AActionPlayerController), 0x0010000000000001);
+				UProperty* NewProp_minFirstPersonPitch = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("minFirstPersonPitch"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(minFirstPersonPitch, AActionPlayerController), 0x0010000000000001);
+				UProperty* NewProp_maxThirdPersonPitch = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("maxThirdPersonPitch"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(maxThirdPersonPitch, AActionPlayerController), 0x0010000000000001);
+				UProperty* NewProp_minThirdPersonPitch = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("minThirdPersonPitch"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(minThirdPersonPitch, AActionPlayerController), 0x0010000000000001);
 				CPP_BOOL_PROPERTY_BITMASK_STRUCT(inThirdPerson, AActionPlayerController, bool);
-				UProperty* NewProp_inThirdPerson = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("inThirdPerson"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(inThirdPerson, AActionPlayerController), 0x0010000000000000, CPP_BOOL_PROPERTY_BITMASK(inThirdPerson, AActionPlayerController), sizeof(bool), true);
+				UProperty* NewProp_inThirdPerson = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("inThirdPerson"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(inThirdPerson, AActionPlayerController), 0x0010000000000001, CPP_BOOL_PROPERTY_BITMASK(inThirdPerson, AActionPlayerController), sizeof(bool), true);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_AActionPlayerController_MoveHorizontal(), "MoveHorizontal"); // 3661615788
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_AActionPlayerController_MoveVertical(), "MoveVertical"); // 3797737010
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_AActionPlayerController_PitchCamera(), "PitchCamera"); // 702037153
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_AActionPlayerController_TurnCamera(), "TurnCamera"); // 3151446237
 				OuterClass->ClassConfigName = FName(TEXT("Game"));
 				static TCppClassTypeInfo<TCppClassTypeTraits<AActionPlayerController> > StaticCppClassTypeInfo;
 				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
@@ -188,6 +298,19 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Collision Rendering Utilities|Transformation"));
 				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("ActionPlayerController.h"));
 				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+				MetaData->SetValue(NewProp_maxFirstPersonYaw, TEXT("Category"), TEXT("First Person Camera"));
+				MetaData->SetValue(NewProp_maxFirstPersonYaw, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+				MetaData->SetValue(NewProp_minFirstPersonYaw, TEXT("Category"), TEXT("First Person Camera"));
+				MetaData->SetValue(NewProp_minFirstPersonYaw, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+				MetaData->SetValue(NewProp_maxFirstPersonPitch, TEXT("Category"), TEXT("First Person Camera"));
+				MetaData->SetValue(NewProp_maxFirstPersonPitch, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+				MetaData->SetValue(NewProp_minFirstPersonPitch, TEXT("Category"), TEXT("First Person Camera"));
+				MetaData->SetValue(NewProp_minFirstPersonPitch, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+				MetaData->SetValue(NewProp_maxThirdPersonPitch, TEXT("Category"), TEXT("Third Person Camera"));
+				MetaData->SetValue(NewProp_maxThirdPersonPitch, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+				MetaData->SetValue(NewProp_minThirdPersonPitch, TEXT("Category"), TEXT("Third Person Camera"));
+				MetaData->SetValue(NewProp_minThirdPersonPitch, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+				MetaData->SetValue(NewProp_inThirdPerson, TEXT("Category"), TEXT("Action Controller"));
 				MetaData->SetValue(NewProp_inThirdPerson, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
 #endif
 			}
@@ -195,7 +318,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 		check(OuterClass->GetClass());
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AActionPlayerController, 2591692579);
+	IMPLEMENT_CLASS(AActionPlayerController, 2313351120);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AActionPlayerController(Z_Construct_UClass_AActionPlayerController, &AActionPlayerController::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AActionPlayerController"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AActionPlayerController);
 class UScriptStruct* FDirectorCam::StaticStruct()
@@ -768,8 +891,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/GameplayRecipies")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0xAE891A40;
-			Guid.B = 0x5CE5ACB6;
+			Guid.A = 0x8455B2F7;
+			Guid.B = 0xFBF8BF7E;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

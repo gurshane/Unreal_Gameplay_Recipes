@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ActionPawn.h"
 
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/Pawn.h"
@@ -20,8 +21,26 @@ class GAMEPLAYRECIPIES_API AActionPlayerController : public APlayerController
 
 public:
 
-	UPROPERTY()
-	bool inThirdPerson;
+	UPROPERTY(EditAnywhere, Category="Action Controller")
+	bool inThirdPerson = true;
+
+	UPROPERTY(EditAnywhere, Category = "Third Person Camera")
+	float minThirdPersonPitch;
+
+	UPROPERTY(EditAnywhere, Category = "Third Person Camera")
+	float maxThirdPersonPitch;
+
+	UPROPERTY(EditAnywhere, Category = "First Person Camera")
+	float minFirstPersonPitch;
+
+	UPROPERTY(EditAnywhere, Category = "First Person Camera")
+	float maxFirstPersonPitch;
+
+	UPROPERTY(EditAnywhere, Category = "First Person Camera")
+	float minFirstPersonYaw;
+
+	UPROPERTY(EditAnywhere, Category = "First Person Camera")
+	float maxFirstPersonYaw;
 	
 protected:
 
@@ -29,9 +48,18 @@ protected:
 	
 public:
 
+	UFUNCTION()
 	void MoveHorizontal(float value);
 
+	UFUNCTION()
 	void MoveVertical(float value);
 
+	UFUNCTION()
+	void TurnCamera(float value);
+
+	UFUNCTION()
+	void PitchCamera(float value);
+
 	void ToggleCam();
+
 };
