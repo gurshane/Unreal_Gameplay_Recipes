@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "ConstructorHelpers.h"
 #include "CameraMan.h"
+#include "ActionPawnMovementComponent.h"
+
 #include "Engine/World.h"
 
 #include "Components/SphereComponent.h"
@@ -27,6 +29,8 @@ public:
 	UPROPERTY(EditAnywhere, Category="Action Pawn")
 	TSubclassOf<ACameraMan> CameraMan;*/
 
+	UActionPawnMovementComponent* MovementComponent;
+
 	UPROPERTY()
 	USphereComponent* MySphereComponent;
 
@@ -48,6 +52,8 @@ public:
 	UPROPERTY(EditAnywhere, Category="Action Pawn")
 	float cameraLagSpeed;
 
+	bool isFalling;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -66,6 +72,10 @@ public:
 	UCameraComponent* GetMyThirdPersonCam();
 
 	UCameraComponent* GetMyFirstPersonCam();
+
+	void StartFalling();
+
+	virtual UPawnMovementComponent* GetMovementComponent() const override;
 
 	//ACameraMan* GetMyThirdPersonCameraMan();
 

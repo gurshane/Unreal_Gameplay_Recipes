@@ -46,6 +46,9 @@ AActionPawn::AActionPawn()
 	MyFirstPersonCam->SetupAttachment(RootComponent);
 	MyFirstPersonCam->bAutoActivate = false;
 
+	MovementComponent = CreateDefaultSubobject<UActionPawnMovementComponent>(TEXT("Movement"));
+	MovementComponent->UpdatedComponent = RootComponent;
+
 	bFindCameraComponentWhenViewTarget = true;
 }
 
@@ -62,7 +65,10 @@ void AActionPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-
+	if (isFalling)
+	{
+		AddMovementInput(FVector(0.0f, 0.0f, -5.0f) * DeltaTime);
+	}
 }
 
 USphereComponent* AActionPawn::GetMySphereComponent()
@@ -84,6 +90,18 @@ UCameraComponent* AActionPawn::GetMyThirdPersonCam()
 {
 	return MyThirdPersonCam;
 }
+
+void AActionPawn::StartFalling()
+{
+	isFalling = true;
+}
+
+UPawnMovementComponent* AActionPawn::GetMovementComponent() const
+{
+	return MovementComponent;
+}
+
+
 
 //ACameraMan* AActionPawn::GetMyFirstPersonCameraMan()
 //{

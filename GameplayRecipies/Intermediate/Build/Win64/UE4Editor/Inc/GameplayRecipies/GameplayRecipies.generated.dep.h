@@ -8,8 +8,14 @@
 #ifndef GAMEPLAYRECIPIES_ActionGameMode_generated_h
 	#include "ActionGameMode.h"
 #endif
+#ifndef GAMEPLAYRECIPIES_ActionMovementComponent_generated_h
+	#include "ActionMovementComponent.h"
+#endif
 #ifndef GAMEPLAYRECIPIES_CameraMan_generated_h
 	#include "CameraMan.h"
+#endif
+#ifndef GAMEPLAYRECIPIES_ActionPawnMovementComponent_generated_h
+	#include "ActionPawnMovementComponent.h"
 #endif
 #ifndef GAMEPLAYRECIPIES_ActionPawn_generated_h
 	#include "ActionPawn.h"

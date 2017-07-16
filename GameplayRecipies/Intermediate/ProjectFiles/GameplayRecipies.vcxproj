@@ -416,8 +416,12 @@
 		<None Include="..\..\Config\DefaultInput.ini" />
 		<ClCompile Include="..\..\Source\GameplayRecipies\ActionGameMode.cpp" />
 		<ClInclude Include="..\..\Source\GameplayRecipies\ActionGameMode.h" />
+		<ClCompile Include="..\..\Source\GameplayRecipies\ActionMovementComponent.cpp" />
+		<ClInclude Include="..\..\Source\GameplayRecipies\ActionMovementComponent.h" />
 		<ClCompile Include="..\..\Source\GameplayRecipies\ActionPawn.cpp" />
 		<ClInclude Include="..\..\Source\GameplayRecipies\ActionPawn.h" />
+		<ClCompile Include="..\..\Source\GameplayRecipies\ActionPawnMovementComponent.cpp" />
+		<ClInclude Include="..\..\Source\GameplayRecipies\ActionPawnMovementComponent.h" />
 		<ClCompile Include="..\..\Source\GameplayRecipies\ActionPlayerController.cpp" />
 		<ClInclude Include="..\..\Source\GameplayRecipies\ActionPlayerController.h" />
 		<ClCompile Include="..\..\Source\GameplayRecipies\CameraDirector.cpp" />

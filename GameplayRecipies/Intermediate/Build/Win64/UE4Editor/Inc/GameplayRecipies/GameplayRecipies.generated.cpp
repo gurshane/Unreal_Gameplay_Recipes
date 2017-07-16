@@ -16,14 +16,15 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 #if USE_COMPILED_IN_NATIVES
 // Cross Module References
 	ENGINE_API class UClass* Z_Construct_UClass_AGameModeBase();
+	ENGINE_API class UClass* Z_Construct_UClass_UActorComponent();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_UPawnMovementComponent();
 	ENGINE_API class UClass* Z_Construct_UClass_APawn();
 	ENGINE_API class UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_APlayerController();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_UPawnMovementComponent();
 	ENGINE_API class UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_UPointLightComponent_NoRegister();
@@ -32,8 +33,12 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionGameMode_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionGameMode();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_UActionMovementComponent_NoRegister();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_UActionMovementComponent();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ACameraMan_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ACameraMan();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_UActionPawnMovementComponent_NoRegister();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_UActionPawnMovementComponent();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionPawn_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionPawn();
 	GAMEPLAYRECIPIES_API class UFunction* Z_Construct_UFunction_AActionPlayerController_MoveHorizontal();
@@ -105,6 +110,45 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 	IMPLEMENT_CLASS(AActionGameMode, 1472542392);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AActionGameMode(Z_Construct_UClass_AActionGameMode, &AActionGameMode::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AActionGameMode"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AActionGameMode);
+	void UActionMovementComponent::StaticRegisterNativesUActionMovementComponent()
+	{
+	}
+	UClass* Z_Construct_UClass_UActionMovementComponent_NoRegister()
+	{
+		return UActionMovementComponent::StaticClass();
+	}
+	UClass* Z_Construct_UClass_UActionMovementComponent()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_UActorComponent();
+			Z_Construct_UPackage__Script_GameplayRecipies();
+			OuterClass = UActionMovementComponent::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20B00080;
+
+
+				static TCppClassTypeInfo<TCppClassTypeTraits<UActionMovementComponent> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("BlueprintSpawnableComponent"), TEXT(""));
+				MetaData->SetValue(OuterClass, TEXT("ClassGroupNames"), TEXT("Custom"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("ActionMovementComponent.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("ActionMovementComponent.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(UActionMovementComponent, 2060140973);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_UActionMovementComponent(Z_Construct_UClass_UActionMovementComponent, &UActionMovementComponent::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("UActionMovementComponent"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UActionMovementComponent);
 	void ACameraMan::StaticRegisterNativesACameraMan()
 	{
 	}
@@ -147,6 +191,44 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	IMPLEMENT_CLASS(ACameraMan, 3277630054);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_ACameraMan(Z_Construct_UClass_ACameraMan, &ACameraMan::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("ACameraMan"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ACameraMan);
+	void UActionPawnMovementComponent::StaticRegisterNativesUActionPawnMovementComponent()
+	{
+	}
+	UClass* Z_Construct_UClass_UActionPawnMovementComponent_NoRegister()
+	{
+		return UActionPawnMovementComponent::StaticClass();
+	}
+	UClass* Z_Construct_UClass_UActionPawnMovementComponent()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_UPawnMovementComponent();
+			Z_Construct_UPackage__Script_GameplayRecipies();
+			OuterClass = UActionPawnMovementComponent::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20B00084;
+
+
+				OuterClass->ClassConfigName = FName(TEXT("Engine"));
+				static TCppClassTypeInfo<TCppClassTypeTraits<UActionPawnMovementComponent> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("ActionPawnMovementComponent.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("ActionPawnMovementComponent.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(UActionPawnMovementComponent, 642009478);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_UActionPawnMovementComponent(Z_Construct_UClass_UActionPawnMovementComponent, &UActionPawnMovementComponent::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("UActionPawnMovementComponent"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UActionPawnMovementComponent);
 	void AActionPawn::StaticRegisterNativesAActionPawn()
 	{
 	}
@@ -194,14 +276,13 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				MetaData->SetValue(NewProp_MySpringArmComponent, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
 				MetaData->SetValue(NewProp_MySphereComponent, TEXT("EditInline"), TEXT("true"));
 				MetaData->SetValue(NewProp_MySphereComponent, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
-				MetaData->SetValue(NewProp_MySphereComponent, TEXT("ToolTip"), TEXT("UPROPERTY(EditAnywhere, Category=\"Action Pawn\")\nTSubclassOf<ACameraMan> CameraMan;"));
 #endif
 			}
 		}
 		check(OuterClass->GetClass());
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AActionPawn, 97517709);
+	IMPLEMENT_CLASS(AActionPawn, 206742369);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AActionPawn(Z_Construct_UClass_AActionPawn, &AActionPawn::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AActionPawn"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AActionPawn);
 	void AActionPlayerController::StaticRegisterNativesAActionPlayerController()
@@ -943,8 +1024,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/GameplayRecipies")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0x34F99A24;
-			Guid.B = 0xF122FAA8;
+			Guid.A = 0xC250BB2A;
+			Guid.B = 0xCC27B68F;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

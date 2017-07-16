@@ -56,6 +56,7 @@ protected:
 	virtual void BeginPlayingState() override;
 
 	virtual void SetupInputComponent() override;
+
 	
 public:
 
@@ -72,5 +73,7 @@ public:
 	void PitchCamera(float value);
 
 	void ToggleCam();
+
+	void DoJump();
 
 };
