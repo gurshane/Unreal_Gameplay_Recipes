@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "ActionPawn.h"
+#include "EngineUtils.h"
+#include "Engine.h"
+#include "EngineGlobals.h"
 
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/Pawn.h"
@@ -41,8 +44,16 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "First Person Camera")
 	float maxFirstPersonYaw;
+
+	UPROPERTY(EditAnywhere, Category = "Camera Crew")
+	ACameraMan* FirstPersonCameraMan;
+
+	UPROPERTY(EditAnywhere, Category = "Camera Crew")
+	ACameraMan* ThirdPersonCameraMan;
 	
 protected:
+
+	virtual void BeginPlayingState() override;
 
 	virtual void SetupInputComponent() override;
 	

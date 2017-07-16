@@ -422,6 +422,8 @@
 		<ClInclude Include="..\..\Source\GameplayRecipies\ActionPlayerController.h" />
 		<ClCompile Include="..\..\Source\GameplayRecipies\CameraDirector.cpp" />
 		<ClInclude Include="..\..\Source\GameplayRecipies\CameraDirector.h" />
+		<ClCompile Include="..\..\Source\GameplayRecipies\CameraMan.cpp" />
+		<ClInclude Include="..\..\Source\GameplayRecipies\CameraMan.h" />
 		<ClCompile Include="..\..\Source\GameplayRecipies\CollidingPawn.cpp" />
 		<ClInclude Include="..\..\Source\GameplayRecipies\CollidingPawn.h" />
 		<ClCompile Include="..\..\Source\GameplayRecipies\CollidingPawnMovementComponent.cpp" />

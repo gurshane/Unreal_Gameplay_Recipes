@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\GameplayRecipies.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{2053CF3A-1491-4C4D-A3D8-70C0990CC64C}</UniqueIdentifier>
+			<UniqueIdentifier>{E22E9216-5AD0-4C4F-87E9-B3B307DC64BD}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\GameplayRecipies.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{E92281D0-0B72-45D7-ADF9-919DF385791A}</UniqueIdentifier>
+			<UniqueIdentifier>{CFF42596-075F-4B05-B0D4-BB0BF005AE4A}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -28,7 +28,7 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\GameplayRecipies">
-			<UniqueIdentifier>{C7724937-71C5-4C84-9CFF-37DBEB7F2FA3}</UniqueIdentifier>
+			<UniqueIdentifier>{1F113E02-369B-4F78-9F05-EE2A9C8978C4}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\Source\GameplayRecipies\ActionGameMode.cpp">
 			<Filter>Source\GameplayRecipies</Filter>
@@ -52,6 +52,12 @@
 			<Filter>Source\GameplayRecipies</Filter>
 		</ClCompile >
 		<ClInclude Include="..\..\Source\GameplayRecipies\CameraDirector.h">
+			<Filter>Source\GameplayRecipies</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\GameplayRecipies\CameraMan.cpp">
+			<Filter>Source\GameplayRecipies</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\GameplayRecipies\CameraMan.h">
 			<Filter>Source\GameplayRecipies</Filter>
 		</ClInclude >
 		<ClCompile Include="..\..\Source\GameplayRecipies\CollidingPawn.cpp">

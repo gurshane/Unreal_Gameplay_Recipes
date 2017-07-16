@@ -16,13 +16,13 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 #if USE_COMPILED_IN_NATIVES
 // Cross Module References
 	ENGINE_API class UClass* Z_Construct_UClass_AGameModeBase();
-	ENGINE_API class UClass* Z_Construct_UClass_APawn();
+	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_APawn();
 	ENGINE_API class UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_APlayerController();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_UPawnMovementComponent();
 	ENGINE_API class UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
@@ -32,6 +32,8 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionGameMode_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionGameMode();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ACameraMan_NoRegister();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ACameraMan();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionPawn_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AActionPawn();
 	GAMEPLAYRECIPIES_API class UFunction* Z_Construct_UFunction_AActionPlayerController_MoveHorizontal();
@@ -103,6 +105,48 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 	IMPLEMENT_CLASS(AActionGameMode, 1472542392);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AActionGameMode(Z_Construct_UClass_AActionGameMode, &AActionGameMode::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AActionGameMode"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AActionGameMode);
+	void ACameraMan::StaticRegisterNativesACameraMan()
+	{
+	}
+	UClass* Z_Construct_UClass_ACameraMan_NoRegister()
+	{
+		return ACameraMan::StaticClass();
+	}
+	UClass* Z_Construct_UClass_ACameraMan()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_AActor();
+			Z_Construct_UPackage__Script_GameplayRecipies();
+			OuterClass = ACameraMan::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20900080;
+
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_MyCamera = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MyCamera"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MyCamera, ACameraMan), 0x0010000000080008, Z_Construct_UClass_UCameraComponent_NoRegister());
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+				static TCppClassTypeInfo<TCppClassTypeTraits<ACameraMan> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("CameraMan.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("CameraMan.h"));
+				MetaData->SetValue(NewProp_MyCamera, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_MyCamera, TEXT("ModuleRelativePath"), TEXT("CameraMan.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(ACameraMan, 3277630054);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_ACameraMan(Z_Construct_UClass_ACameraMan, &ACameraMan::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("ACameraMan"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(ACameraMan);
 	void AActionPawn::StaticRegisterNativesAActionPawn()
 	{
 	}
@@ -141,6 +185,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
 				MetaData->SetValue(NewProp_cameraLagSpeed, TEXT("Category"), TEXT("Action Pawn"));
 				MetaData->SetValue(NewProp_cameraLagSpeed, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
+				MetaData->SetValue(NewProp_cameraLagSpeed, TEXT("ToolTip"), TEXT("UPROPERTY()\nACameraMan* MyFirstPersonCameraMan;"));
 				MetaData->SetValue(NewProp_MyFirstPersonCam, TEXT("EditInline"), TEXT("true"));
 				MetaData->SetValue(NewProp_MyFirstPersonCam, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
 				MetaData->SetValue(NewProp_MyThirdPersonCam, TEXT("EditInline"), TEXT("true"));
@@ -149,13 +194,14 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				MetaData->SetValue(NewProp_MySpringArmComponent, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
 				MetaData->SetValue(NewProp_MySphereComponent, TEXT("EditInline"), TEXT("true"));
 				MetaData->SetValue(NewProp_MySphereComponent, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
+				MetaData->SetValue(NewProp_MySphereComponent, TEXT("ToolTip"), TEXT("UPROPERTY(EditAnywhere, Category=\"Action Pawn\")\nTSubclassOf<ACameraMan> CameraMan;"));
 #endif
 			}
 		}
 		check(OuterClass->GetClass());
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AActionPawn, 3135815100);
+	IMPLEMENT_CLASS(AActionPawn, 97517709);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AActionPawn(Z_Construct_UClass_AActionPawn, &AActionPawn::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AActionPawn"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AActionPawn);
 	void AActionPlayerController::StaticRegisterNativesAActionPlayerController()
@@ -276,6 +322,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->LinkChild(Z_Construct_UFunction_AActionPlayerController_TurnCamera());
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_ThirdPersonCameraMan = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("ThirdPersonCameraMan"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(ThirdPersonCameraMan, AActionPlayerController), 0x0010000000000001, Z_Construct_UClass_ACameraMan_NoRegister());
+				UProperty* NewProp_FirstPersonCameraMan = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("FirstPersonCameraMan"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(FirstPersonCameraMan, AActionPlayerController), 0x0010000000000001, Z_Construct_UClass_ACameraMan_NoRegister());
 				UProperty* NewProp_maxFirstPersonYaw = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("maxFirstPersonYaw"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(maxFirstPersonYaw, AActionPlayerController), 0x0010000000000001);
 				UProperty* NewProp_minFirstPersonYaw = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("minFirstPersonYaw"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(minFirstPersonYaw, AActionPlayerController), 0x0010000000000001);
 				UProperty* NewProp_maxFirstPersonPitch = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("maxFirstPersonPitch"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(maxFirstPersonPitch, AActionPlayerController), 0x0010000000000001);
@@ -298,6 +346,10 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Collision Rendering Utilities|Transformation"));
 				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("ActionPlayerController.h"));
 				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+				MetaData->SetValue(NewProp_ThirdPersonCameraMan, TEXT("Category"), TEXT("Camera Crew"));
+				MetaData->SetValue(NewProp_ThirdPersonCameraMan, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
+				MetaData->SetValue(NewProp_FirstPersonCameraMan, TEXT("Category"), TEXT("Camera Crew"));
+				MetaData->SetValue(NewProp_FirstPersonCameraMan, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
 				MetaData->SetValue(NewProp_maxFirstPersonYaw, TEXT("Category"), TEXT("First Person Camera"));
 				MetaData->SetValue(NewProp_maxFirstPersonYaw, TEXT("ModuleRelativePath"), TEXT("ActionPlayerController.h"));
 				MetaData->SetValue(NewProp_minFirstPersonYaw, TEXT("Category"), TEXT("First Person Camera"));
@@ -318,7 +370,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 		check(OuterClass->GetClass());
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AActionPlayerController, 2313351120);
+	IMPLEMENT_CLASS(AActionPlayerController, 458276045);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AActionPlayerController(Z_Construct_UClass_AActionPlayerController, &AActionPlayerController::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AActionPlayerController"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AActionPlayerController);
 class UScriptStruct* FDirectorCam::StaticStruct()
@@ -891,8 +943,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/GameplayRecipies")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0x8455B2F7;
-			Guid.B = 0xFBF8BF7E;
+			Guid.A = 0x34F99A24;
+			Guid.B = 0xF122FAA8;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

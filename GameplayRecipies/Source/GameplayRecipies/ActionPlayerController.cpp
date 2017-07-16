@@ -2,6 +2,22 @@
 
 #include "ActionPlayerController.h"
 
+void AActionPlayerController::BeginPlayingState()
+{
+	Super::BeginPlayingState();
+
+	TArray<ACameraMan*> CameraMen;
+
+	for (TActorIterator<ACameraMan> ActorItr(GetWorld()); ActorItr; ++ActorItr)
+	{
+		CameraMen.Add(*ActorItr);
+	}
+
+	ThirdPersonCameraMan = CameraMen[0];
+	FirstPersonCameraMan = CameraMen[1];
+
+}
+
 void AActionPlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
@@ -62,8 +78,8 @@ void AActionPlayerController::TurnCamera(float value)
 		{
 
 			//If I am in third person, rotate spring arm around player
-			if (inThirdPerson)
-			{
+			/*if (inThirdPerson)
+			{*/
 				USpringArmComponent* ActorSpringArmComponent = MyActionPawn->GetMySpringArmComponent();
 				
 				if (ActorSpringArmComponent)
@@ -72,18 +88,22 @@ void AActionPlayerController::TurnCamera(float value)
 					SpringArmRotator.Yaw += value;
 					ActorSpringArmComponent->SetWorldRotation(SpringArmRotator);
 				}
-			}
-			else //If I am in first person, rotate camera
-			{
-				UCameraComponent* ActorCameraComponent = MyActionPawn->GetMyFirstPersonCam();
+			//}
+			//else //If I am in first person, rotate camera
+			//{
+			//	/*ACameraMan* FirstPersonCameraMan = MyActionPawn->GetMyFirstPersonCameraMan();
+			//	if (FirstPersonCameraMan)
+			//	{*/
+			//		UCameraComponent* ActorCameraComponent = MyActionPawn->GetMyFirstPersonCam();
 
-				if (ActorCameraComponent)
-				{
-					FRotator CameraRotator = ActorCameraComponent->GetComponentRotation();
-					CameraRotator.Yaw = FMath::Clamp<float>(CameraRotator.Yaw + value, minFirstPersonYaw, maxFirstPersonYaw);
-					ActorCameraComponent->SetWorldRotation(CameraRotator);
-				}
-			}
+			//		if (ActorCameraComponent)
+			//		{
+			//			FRotator CameraRotator = ActorCameraComponent->GetComponentRotation();
+			//			CameraRotator.Yaw = FMath::Clamp<float>(CameraRotator.Yaw + value, minFirstPersonYaw, maxFirstPersonYaw);
+			//			ActorCameraComponent->SetWorldRotation(CameraRotator);
+			//		}
+			//	//}
+			//}
 
 		}
 	}
@@ -103,8 +123,8 @@ void AActionPlayerController::PitchCamera(float value)
 		{
 
 			//If I am in third person, rotate spring arm around player
-			if (inThirdPerson)
-			{
+			/*if (inThirdPerson)
+			{*/
 				USpringArmComponent* ActorSpringArmComponent = MyActionPawn->GetMySpringArmComponent();
 
 				if (ActorSpringArmComponent)
@@ -113,18 +133,22 @@ void AActionPlayerController::PitchCamera(float value)
 					SpringArmRotator.Pitch = FMath::Clamp<float>(SpringArmRotator.Pitch + value, -85.0f, 15.0f);
 					ActorSpringArmComponent->SetWorldRotation(SpringArmRotator);
 				}
-			}
-			else //If I am in first person, rotate camera
-			{
-				UCameraComponent* ActorCameraComponent = MyActionPawn->GetMyFirstPersonCam();
+			//}
+			//else //If I am in first person, rotate camera
+			//{
+			//	/*ACameraMan* FirstPersonCameraMan = MyActionPawn->GetMyFirstPersonCameraMan();
+			//	if (FirstPersonCameraMan)
+			//	{*/
+			//		UCameraComponent* ActorCameraComponent = MyActionPawn->GetMyFirstPersonCam();
 
-				if (ActorCameraComponent)
-				{
-					FRotator CameraRotator = ActorCameraComponent->GetComponentRotation();
-					CameraRotator.Pitch = FMath::Clamp<float>(CameraRotator.Pitch + value, minFirstPersonPitch, maxFirstPersonPitch);
-					ActorCameraComponent->SetWorldRotation(CameraRotator);
-				}
-			}
+			//		if (ActorCameraComponent)
+			//		{
+			//			FRotator CameraRotator = ActorCameraComponent->GetComponentRotation();
+			//			CameraRotator.Pitch = FMath::Clamp<float>(CameraRotator.Pitch + value, minFirstPersonPitch, maxFirstPersonPitch);
+			//			ActorCameraComponent->SetWorldRotation(CameraRotator);
+			//		}
+			//	//}
+			//}
 
 		}
 	}
@@ -133,18 +157,62 @@ void AActionPlayerController::PitchCamera(float value)
 void AActionPlayerController::ToggleCam()
 {
 	
+	AActor* MyPawn = GetPawn();
 
-	if (inThirdPerson)
+	if (MyPawn)
 	{
-		//swap to first
-		
-	}
-	else
-	{
-		//swap to third
-	}
+		AActionPawn* MyActionPawn = (AActionPawn*) MyPawn;
 
-	inThirdPerson = !inThirdPerson;
+		if (MyActionPawn)
+		{
+			USpringArmComponent* ActorSpringArm = MyActionPawn->GetMySpringArmComponent();
+
+			if (ActorSpringArm)
+			{
+				if (inThirdPerson)
+				{
+					ActorSpringArm->TargetArmLength = 0;
+					ActorSpringArm->SetRelativeRotation(FRotator(0.0f, 0.0f, 0.0f));
+				}
+				else
+				{
+					ActorSpringArm->TargetArmLength = 350.0f;
+					ActorSpringArm->SetRelativeRotation(FRotator(-45.0f, 0.0f, 0.0f));
+				}
+				inThirdPerson = !inThirdPerson;
+
+			}
+			////UCameraComponent* FirstPersonCam = MyActionPawn->GetMyFirstPersonCam();
+			//UCameraComponent* ThirdPersonCam = MyActionPawn->GetMyThirdPersonCam();
+
+			//if (/*FirstPersonCam &&*/ ThirdPersonCam)
+			//{
+			//	
+			//	if (inThirdPerson)
+			//	{
+			//		//swap to first
+			//		/*if (FirstPersonCameraMan->GetMyCamera() == nullptr)
+			//		{
+			//			FirstPersonCameraMan->SetMyCamera(FirstPersonCam);
+			//		}
+			//		SetViewTarget(FirstPersonCameraMan);*/
+
+			//	}
+			//	else
+			//	{
+			//		//swap to third
+			//		/*if (ThirdPersonCameraMan->GetMyCamera() == nullptr)
+			//		{
+			//			ThirdPersonCameraMan->SetMyCamera(ThirdPersonCam);
+			//		}
+			//		SetViewTarget(ThirdPersonCameraMan);*/
+			//	}
+
+			//	inThirdPerson = !inThirdPerson;
+			//}
+
+		}
+	}
 }
 
 

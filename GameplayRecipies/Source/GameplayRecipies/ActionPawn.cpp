@@ -35,16 +35,18 @@ AActionPawn::AActionPawn()
 	MySpringArmComponent->SetupAttachment(RootComponent);
 
 	//Create and attach third person cam to spring arm
+	//MyThirdPersonCameraMan = GetWorld()->SpawnActor<ACameraMan>(CameraMan, GetActorLocation(), GetActorRotation());
+	//MyThirdPersonCameraMan->GetMyCamera()->SetupAttachment(MySpringArmComponent, USpringArmComponent::SocketName);
 	MyThirdPersonCam = CreateDefaultSubobject<UCameraComponent>(TEXT("ThirdPersonCam"));
 	MyThirdPersonCam->SetupAttachment(MySpringArmComponent, USpringArmComponent::SocketName);
 	MyThirdPersonCam->bAutoActivate = true;
 
 	//Create and attach first person cam to root
 	MyFirstPersonCam = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCam"));
-	MyFirstPersonCam->SetRelativeLocation(FVector(0.0f, 20.0f, 0.0f));
 	MyFirstPersonCam->SetupAttachment(RootComponent);
 	MyFirstPersonCam->bAutoActivate = false;
-	MyFirstPersonCam->Activate(false);
+
+	bFindCameraComponentWhenViewTarget = true;
 }
 
 // Called when the game starts or when spawned
@@ -59,6 +61,7 @@ void AActionPawn::BeginPlay()
 void AActionPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
 
 }
 
@@ -81,5 +84,15 @@ UCameraComponent* AActionPawn::GetMyThirdPersonCam()
 {
 	return MyThirdPersonCam;
 }
+
+//ACameraMan* AActionPawn::GetMyFirstPersonCameraMan()
+//{
+//	return MyFirstPersonCameraMan;
+//}
+//
+//ACameraMan* AActionPawn::GetMyThirdPersonCameraMan()
+//{
+//	return MyThirdPersonCameraMan;
+//}
 
 

@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "ConstructorHelpers.h"
+#include "CameraMan.h"
+#include "Engine/World.h"
 
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
@@ -21,7 +23,10 @@ class GAMEPLAYRECIPIES_API AActionPawn : public APawn
 	GENERATED_BODY()
 
 public:
-	
+	/*
+	UPROPERTY(EditAnywhere, Category="Action Pawn")
+	TSubclassOf<ACameraMan> CameraMan;*/
+
 	UPROPERTY()
 	USphereComponent* MySphereComponent;
 
@@ -33,6 +38,12 @@ public:
 
 	UPROPERTY()
 	UCameraComponent* MyFirstPersonCam;
+
+	//UPROPERTY()
+	//ACameraMan* MyThirdPersonCameraMan;
+
+	//UPROPERTY()
+	//ACameraMan* MyFirstPersonCameraMan;
 
 	UPROPERTY(EditAnywhere, Category="Action Pawn")
 	float cameraLagSpeed;
@@ -55,5 +66,9 @@ public:
 	UCameraComponent* GetMyThirdPersonCam();
 
 	UCameraComponent* GetMyFirstPersonCam();
+
+	//ACameraMan* GetMyThirdPersonCameraMan();
+
+	//ACameraMan* GetMyFirstPersonCameraMan();
 
 };
