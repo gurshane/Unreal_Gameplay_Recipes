@@ -6,7 +6,7 @@ void AActionPlayerController::BeginPlayingState()
 {
 	Super::BeginPlayingState();
 
-	TArray<ACameraMan*> CameraMen;
+	/*TArray<ACameraMan*> CameraMen;
 
 	for (TActorIterator<ACameraMan> ActorItr(GetWorld()); ActorItr; ++ActorItr)
 	{
@@ -14,7 +14,7 @@ void AActionPlayerController::BeginPlayingState()
 	}
 
 	ThirdPersonCameraMan = CameraMen[0];
-	FirstPersonCameraMan = CameraMen[1];
+	FirstPersonCameraMan = CameraMen[1];*/
 
 }
 
@@ -28,6 +28,7 @@ void AActionPlayerController::SetupInputComponent()
 	InputComponent->BindAxis("Pitch", this, &AActionPlayerController::PitchCamera);
 
 	InputComponent->BindAction("ToggleCam", IE_Pressed, this, &AActionPlayerController::ToggleCam);
+	InputComponent->BindAction("Jump", IE_Pressed, this, &AActionPlayerController::DoJump);
 }
 
 
@@ -59,7 +60,24 @@ void AActionPlayerController::MoveVertical(float value)
 
 		if (PawnMovement)
 		{
+
 			FVector ResultVector = MyPawn->GetActorForwardVector() * FMath::Clamp<float>(value, -1.0f, 1.0f);
+			
+			//Need to rotate the user towards the camera's view direction and then move
+			if (!inThirdPerson)
+			{
+				AActionPawn* MyActionPawn = (AActionPawn*)MyPawn;
+				if (MyActionPawn)
+				{
+					USpringArmComponent* PawnSpringArm = MyActionPawn->GetMySpringArmComponent();
+					if (PawnSpringArm)
+					{
+						FRotator CameraRotation(PawnSpringArm->ComponentToWorld.GetRotation());
+						const FVector Direction = FRotationMatrix(CameraRotation).GetScaledAxis(EAxis::X);
+						ResultVector += Direction;
+					}
+				}
+			}
 			PawnMovement->AddInputVector(ResultVector);
 		}
 	}
@@ -78,37 +96,44 @@ void AActionPlayerController::TurnCamera(float value)
 		if (MyActionPawn)
 		{
 			USpringArmComponent* ActorSpringArmComponent = MyActionPawn->GetMySpringArmComponent();
-
+			
+			FRotator InitialActorRotation;
 
 			//Update the spring arm cameras yaw for both first and third person cameras
 			if (ActorSpringArmComponent)
 			{
 				FRotator SpringArmRotator = ActorSpringArmComponent->GetComponentRotation();
+				InitialActorRotation = SpringArmRotator;
 				SpringArmRotator.Yaw += value;
 				ActorSpringArmComponent->SetWorldRotation(SpringArmRotator);
-			}
 
-			//If I am in first person, rotate player
-			if (!inThirdPerson)
-			{
-				/*USpringArmComponent* ActorSpringArmComponent = MyActionPawn->GetMySpringArmComponent();
-				
-				if (ActorSpringArmComponent)
+				if (!inThirdPerson)
 				{
-					FRotator SpringArmRotator = ActorSpringArmComponent->GetComponentRotation();
-					SpringArmRotator.Yaw += value;
-					ActorSpringArmComponent->SetWorldRotation(SpringArmRotator);
-				}*/
-
-				//Update actor rotation
-
-				//TODO:
-				//use value as a left or right indicator but not as the amount to change the actor by
-				//to do this find the idfference between the spring arm rotator's before and after quaternion and then apply that to the actor
-				FRotator MyPawnRotator = MyPawn->GetActorRotation();
-				MyPawnRotator.Yaw += value ;
-				MyPawn->SetActorRotation(MyPawnRotator);
+					
+					FRotator MyPawnRotator = MyPawn->GetActorRotation();
+					GEngine->AddOnScreenDebugMessage(-1, 0.5f, FColor::Red, FString::SanitizeFloat(value));
+					MyPawnRotator.Yaw += ((SpringArmRotator.Yaw - InitialActorRotation.Yaw) * 75.0f);
+					MyPawn->SetActorRotation(MyPawnRotator);
+				}
 			}
+
+
+			/*USpringArmComponent* ActorSpringArmComponent = MyActionPawn->GetMySpringArmComponent();
+
+			if (ActorSpringArmComponent)
+			{
+			FRotator SpringArmRotator = ActorSpringArmComponent->GetComponentRotation();
+			SpringArmRotator.Yaw += value;
+			ActorSpringArmComponent->SetWorldRotation(SpringArmRotator);
+			}*/
+
+			//Update actor rotation
+
+			//TODO:
+			//use value as a left or right indicator but not as the amount to change the actor by
+			//to do this find the idfference between the spring arm rotator's before and after quaternion and then apply that to the actor
+			//If I am in first person, rotate player
+			
 			//else //If I am in first person, rotate camera and player
 			//{
 				/*ACameraMan* FirstPersonCameraMan = MyActionPawn->GetMyFirstPersonCameraMan();
@@ -252,7 +277,7 @@ void AActionPlayerController::DoJump()
 
 			if (PawnMovementComponent)
 			{
-				PawnMovementComponent->AddInputVector(FVector(0.0f, 0.0f, 50.0f));
+				PawnMovementComponent->AddInputVector(FVector(0.0f, 0.0f, 200.0f));
 				MyActionPawn->StartFalling();
 			}
 		}

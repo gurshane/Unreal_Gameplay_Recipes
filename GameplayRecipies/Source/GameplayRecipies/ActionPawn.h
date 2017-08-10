@@ -11,6 +11,8 @@
 
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "Components/ArrowComponent.h"
 
 #include "Camera/CameraComponent.h"
 
@@ -31,8 +33,14 @@ public:
 
 	UActionPawnMovementComponent* MovementComponent;
 
+	UPROPERTY(EditAnywhere)
+	USkeletalMeshComponent* MyMesh;
+
 	UPROPERTY()
-	USphereComponent* MySphereComponent;
+	UCapsuleComponent* MyCapsuleComponent;
+
+	/*UPROPERTY()
+	USphereComponent* MySphereComponent;*/
 
 	UPROPERTY()
 	USpringArmComponent* MySpringArmComponent;
@@ -42,6 +50,9 @@ public:
 
 	UPROPERTY()
 	UCameraComponent* MyFirstPersonCam;
+
+	UPROPERTY()
+	UArrowComponent* MyArrow;
 
 	//UPROPERTY()
 	//ACameraMan* MyThirdPersonCameraMan;

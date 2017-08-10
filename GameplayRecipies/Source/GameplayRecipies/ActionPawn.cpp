@@ -9,11 +9,17 @@ AActionPawn::AActionPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	MyCapsuleComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Collider"));
+	RootComponent = MyCapsuleComponent;
+	MyCapsuleComponent->SetCapsuleHalfHeight(88.0f);
+	MyCapsuleComponent->SetCapsuleRadius(34.0f);
+	MyCapsuleComponent->SetCollisionProfileName(TEXT("Pawn"));
+
 	//Create collider
-	MySphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("Collider"));
+	/*MySphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("Collider"));
 	MySphereComponent->InitSphereRadius(40.0f);
 	MySphereComponent->SetCollisionProfileName(TEXT("Pawn"));
-	RootComponent = MySphereComponent;
+	RootComponent = MySphereComponent;*/
 	
 	//Create and display mesh
 	UStaticMeshComponent* MyMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
@@ -49,7 +55,13 @@ AActionPawn::AActionPawn()
 	MovementComponent = CreateDefaultSubobject<UActionPawnMovementComponent>(TEXT("Movement"));
 	MovementComponent->UpdatedComponent = RootComponent;
 
+	MyArrow = CreateDefaultSubobject<UArrowComponent>(TEXT("Arrow"));
+	MyArrow->SetupAttachment(RootComponent);
+	MyArrow->ArrowSize = 4.0f;
+	MyArrow->bHiddenInGame = false;
+
 	bFindCameraComponentWhenViewTarget = true;
+
 }
 
 // Called when the game starts or when spawned
@@ -71,10 +83,10 @@ void AActionPawn::Tick(float DeltaTime)
 	}
 }
 
-USphereComponent* AActionPawn::GetMySphereComponent()
-{
-	return MySphereComponent;
-}
+//USphereComponent* AActionPawn::GetMySphereComponent()
+//{
+//	return MySphereComponent;
+//}
 
 USpringArmComponent* AActionPawn::GetMySpringArmComponent()
 {

@@ -38,6 +38,9 @@
 #ifndef GAMEPLAYRECIPIES_LightSwitch_generated_h
 	#include "LightSwitch.h"
 #endif
+#ifndef GAMEPLAYRECIPIES_MyCharacter_generated_h
+	#include "MyCharacter.h"
+#endif
 #ifndef GAMEPLAYRECIPIES_MyPawn_generated_h
 	#include "MyPawn.h"
 #endif

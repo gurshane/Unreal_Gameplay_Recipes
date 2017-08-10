@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\GameplayRecipies.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{84520111-323C-4490-83B8-B5DD627B5236}</UniqueIdentifier>
+			<UniqueIdentifier>{7B121B47-6CB9-41C7-AB29-36262192B2E6}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\GameplayRecipies.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{FC44A5AD-525C-4796-97A8-BCAEAE6C9427}</UniqueIdentifier>
+			<UniqueIdentifier>{07C51617-DCF8-4BDB-8034-923E3969C46A}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -28,7 +28,7 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\GameplayRecipies">
-			<UniqueIdentifier>{0F6C704A-D3B3-4CDA-B0DC-7CA16BB8D95C}</UniqueIdentifier>
+			<UniqueIdentifier>{9B64F277-6EBC-4958-A6F1-8766279D5FEE}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\Source\GameplayRecipies\ActionGameMode.cpp">
 			<Filter>Source\GameplayRecipies</Filter>
@@ -103,6 +103,12 @@
 			<Filter>Source\GameplayRecipies</Filter>
 		</ClCompile >
 		<ClInclude Include="..\..\Source\GameplayRecipies\LightSwitch.h">
+			<Filter>Source\GameplayRecipies</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\GameplayRecipies\MyCharacter.cpp">
+			<Filter>Source\GameplayRecipies</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\GameplayRecipies\MyCharacter.h">
 			<Filter>Source\GameplayRecipies</Filter>
 		</ClInclude >
 		<ClCompile Include="..\..\Source\GameplayRecipies\MyPawn.cpp">

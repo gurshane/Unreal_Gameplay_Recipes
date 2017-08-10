@@ -21,13 +21,17 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 	ENGINE_API class UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_UPawnMovementComponent();
 	ENGINE_API class UClass* Z_Construct_UClass_APawn();
+	ENGINE_API class UClass* Z_Construct_UClass_UArrowComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_UCapsuleComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_APlayerController();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API class UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_UPointLightComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API class UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	UMG_API class UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 
@@ -61,6 +65,8 @@ void EmptyLinkFunctionForGeneratedCode1GameplayRecipies() {}
 	GAMEPLAYRECIPIES_API class UFunction* Z_Construct_UFunction_ALightSwitch_ToggleLight();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ALightSwitch_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_ALightSwitch();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AMyCharacter_NoRegister();
+	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AMyCharacter();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AMyPawn_NoRegister();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_AMyPawn();
 	GAMEPLAYRECIPIES_API class UClass* Z_Construct_UClass_APawnWithCamera_NoRegister();
@@ -252,10 +258,12 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 				UProperty* NewProp_cameraLagSpeed = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("cameraLagSpeed"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(cameraLagSpeed, AActionPawn), 0x0010000000000001);
+				UProperty* NewProp_MyArrow = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MyArrow"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MyArrow, AActionPawn), 0x0010000000080008, Z_Construct_UClass_UArrowComponent_NoRegister());
 				UProperty* NewProp_MyFirstPersonCam = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MyFirstPersonCam"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MyFirstPersonCam, AActionPawn), 0x0010000000080008, Z_Construct_UClass_UCameraComponent_NoRegister());
 				UProperty* NewProp_MyThirdPersonCam = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MyThirdPersonCam"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MyThirdPersonCam, AActionPawn), 0x0010000000080008, Z_Construct_UClass_UCameraComponent_NoRegister());
 				UProperty* NewProp_MySpringArmComponent = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MySpringArmComponent"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MySpringArmComponent, AActionPawn), 0x0010000000080008, Z_Construct_UClass_USpringArmComponent_NoRegister());
-				UProperty* NewProp_MySphereComponent = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MySphereComponent"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MySphereComponent, AActionPawn), 0x0010000000080008, Z_Construct_UClass_USphereComponent_NoRegister());
+				UProperty* NewProp_MyCapsuleComponent = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MyCapsuleComponent"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MyCapsuleComponent, AActionPawn), 0x0010000000080008, Z_Construct_UClass_UCapsuleComponent_NoRegister());
+				UProperty* NewProp_MyMesh = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MyMesh"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MyMesh, AActionPawn), 0x0010000000080009, Z_Construct_UClass_USkeletalMeshComponent_NoRegister());
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				static TCppClassTypeInfo<TCppClassTypeTraits<AActionPawn> > StaticCppClassTypeInfo;
 				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
@@ -268,21 +276,27 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				MetaData->SetValue(NewProp_cameraLagSpeed, TEXT("Category"), TEXT("Action Pawn"));
 				MetaData->SetValue(NewProp_cameraLagSpeed, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
 				MetaData->SetValue(NewProp_cameraLagSpeed, TEXT("ToolTip"), TEXT("UPROPERTY()\nACameraMan* MyFirstPersonCameraMan;"));
+				MetaData->SetValue(NewProp_MyArrow, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_MyArrow, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
 				MetaData->SetValue(NewProp_MyFirstPersonCam, TEXT("EditInline"), TEXT("true"));
 				MetaData->SetValue(NewProp_MyFirstPersonCam, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
 				MetaData->SetValue(NewProp_MyThirdPersonCam, TEXT("EditInline"), TEXT("true"));
 				MetaData->SetValue(NewProp_MyThirdPersonCam, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
 				MetaData->SetValue(NewProp_MySpringArmComponent, TEXT("EditInline"), TEXT("true"));
 				MetaData->SetValue(NewProp_MySpringArmComponent, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
-				MetaData->SetValue(NewProp_MySphereComponent, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_MySphereComponent, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
+				MetaData->SetValue(NewProp_MySpringArmComponent, TEXT("ToolTip"), TEXT("UPROPERTY()\n       USphereComponent* MySphereComponent;"));
+				MetaData->SetValue(NewProp_MyCapsuleComponent, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_MyCapsuleComponent, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
+				MetaData->SetValue(NewProp_MyMesh, TEXT("Category"), TEXT("ActionPawn"));
+				MetaData->SetValue(NewProp_MyMesh, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_MyMesh, TEXT("ModuleRelativePath"), TEXT("ActionPawn.h"));
 #endif
 			}
 		}
 		check(OuterClass->GetClass());
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AActionPawn, 206742369);
+	IMPLEMENT_CLASS(AActionPawn, 1175557456);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AActionPawn(Z_Construct_UClass_AActionPawn, &AActionPawn::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AActionPawn"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AActionPawn);
 	void AActionPlayerController::StaticRegisterNativesAActionPlayerController()
@@ -810,6 +824,44 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	IMPLEMENT_CLASS(ALightSwitch, 2647976159);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_ALightSwitch(Z_Construct_UClass_ALightSwitch, &ALightSwitch::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("ALightSwitch"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ALightSwitch);
+	void AMyCharacter::StaticRegisterNativesAMyCharacter()
+	{
+	}
+	UClass* Z_Construct_UClass_AMyCharacter_NoRegister()
+	{
+		return AMyCharacter::StaticClass();
+	}
+	UClass* Z_Construct_UClass_AMyCharacter()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_ACharacter();
+			Z_Construct_UPackage__Script_GameplayRecipies();
+			OuterClass = AMyCharacter::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20900080;
+
+
+				static TCppClassTypeInfo<TCppClassTypeTraits<AMyCharacter> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Navigation"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("MyCharacter.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("MyCharacter.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(AMyCharacter, 1938047698);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_AMyCharacter(Z_Construct_UClass_AMyCharacter, &AMyCharacter::StaticClass, TEXT("/Script/GameplayRecipies"), TEXT("AMyCharacter"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(AMyCharacter);
 	void AMyPawn::StaticRegisterNativesAMyPawn()
 	{
 	}
@@ -1024,8 +1076,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/GameplayRecipies")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0xC250BB2A;
-			Guid.B = 0xCC27B68F;
+			Guid.A = 0x59C0267A;
+			Guid.B = 0x027CB052;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

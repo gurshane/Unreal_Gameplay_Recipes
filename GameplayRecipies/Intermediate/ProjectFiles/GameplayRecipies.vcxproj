@@ -439,6 +439,8 @@
 		<ClInclude Include="..\..\Source\GameplayRecipies\GameplayRecipiesGameModeBase.h" />
 		<ClCompile Include="..\..\Source\GameplayRecipies\LightSwitch.cpp" />
 		<ClInclude Include="..\..\Source\GameplayRecipies\LightSwitch.h" />
+		<ClCompile Include="..\..\Source\GameplayRecipies\MyCharacter.cpp" />
+		<ClInclude Include="..\..\Source\GameplayRecipies\MyCharacter.h" />
 		<ClCompile Include="..\..\Source\GameplayRecipies\MyPawn.cpp" />
 		<ClInclude Include="..\..\Source\GameplayRecipies\MyPawn.h" />
 		<ClCompile Include="..\..\Source\GameplayRecipies\PawnWithCamera.cpp" />
